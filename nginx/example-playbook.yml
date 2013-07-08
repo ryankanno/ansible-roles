@@ -12,6 +12,6 @@
     pid: /var/run/nginx.pid
     user: vagrant
   tasks:
-    - include: roles/nginx/tasks/nginx.yml
+    - include: roles/nginx/tasks/main.yml
   handlers:
-    - include: roles/nginx/handlers/nginx.yml
+    - include: roles/nginx/handlers/main.yml
