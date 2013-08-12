@@ -1,0 +1,8 @@
+- name: Update instance
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: False
+
+  tasks: 
+    - include: roles/common/tasks/main.yml

@@ -1,0 +1,12 @@
+---
+  - name: install python-apt
+    raw: 'apt-get install -y python-apt'
+    tags: common
+
+  - name: Update APT package cache
+    action: apt update_cache=yes
+    tags: common
+
+  - name: Run apt-get upgrade
+    action: apt upgrade=yes
+    tags: common
