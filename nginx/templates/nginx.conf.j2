@@ -19,15 +19,7 @@ http {
 
     types_hash_max_size 2048;
 
-    gzip on;
-    gzip_http_version 1.1;
-    gzip_vary on;
-    gzip_comp_level 6;
-    gzip_proxied any;
-    gzip_min_length  1100;
-    gzip_buffers 16 8k;
-    gzip_types text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
-    gzip_disable "MSIE [1-6].(?!.*SV1)";
+    include nginx-conf/gzip.conf;
 
     include /etc/nginx/conf.d/*.conf;
     include /etc/nginx/sites-enabled/*;
