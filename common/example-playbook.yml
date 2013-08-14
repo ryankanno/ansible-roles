@@ -3,7 +3,8 @@
   user: vagrant
   sudo: True
   gather_facts: False
-
   tasks: 
     - include: roles/common/tasks/main.yml
     - include: roles/common/tasks/ntp.yml
+  handlers:
+    - include: roles/common/handlers/main.yml
