@@ -1,0 +1,3 @@
+---
+  - name: 'ntp: restart'
+    action: service name=ntpd pattern=/etc/init.d/ntpd state=restarted enabled=yes

@@ -1,0 +1,9 @@
+---
+  - name: 'ntp: present'
+    apt: pkg=ntp state=present
+    tags: ntp, install
+
+  - name: 'ntp: conf present'
+    template: src=ntp.conf.j2 dest=/etc/ntp.conf mode=0640 owner=root group=root
+    notify: 'ntp: restart'
+    tags: ntp

@@ -6,3 +6,4 @@
 
   tasks: 
     - include: roles/common/tasks/main.yml
+    - include: roles/common/tasks/ntp.yml
