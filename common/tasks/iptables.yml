@@ -1,0 +1,4 @@
+---
+  - name: 'iptables: conf present'
+    template: src=iptables.j2 dest=/etc/iptables.up.rules mode=0600 owner=root group=root
+    tags: iptables
