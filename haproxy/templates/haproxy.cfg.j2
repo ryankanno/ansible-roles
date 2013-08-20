@@ -1,0 +1,26 @@
+global
+	log 127.0.0.1 local0
+	log 127.0.0.1 local1 notice
+	maxconn 4096
+	user haproxy
+	group haproxy
+	daemon
+
+defaults
+	log     global
+	mode    http
+	option  httplog
+	option  dontlognull
+	option  redispatch
+	retries 3
+	maxconn 2000
+	contimeout 5000
+	clitimeout 50000
+	srvtimeout 50000
+
+
+listen web 0.0.0.0:10000
+	option     httpchk GET /check.html
+	balance    roundrobin
+	server     web1 web1:80 check inter 2000 fall 3
+	server     web2 web2:80 check inter 2000 fall 3
