@@ -1,0 +1,3 @@
+---
+  - name: 'uwsgi: restart'
+    action: service name=uwsgi pattern=/etc/init.d/uwsgi state=restarted enabled=yes

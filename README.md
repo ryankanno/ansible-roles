@@ -11,4 +11,12 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ## Playbooks
 
+### Tested
+
+  * [common](https://github.com/ryankanno/playbooks/tree/master/common)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
+
+### Dragons
+
+  * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
+  * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
