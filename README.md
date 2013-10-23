@@ -12,5 +12,3 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ## Playbooks
 
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
-
-
