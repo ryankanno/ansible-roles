@@ -1,6 +1,14 @@
 # common
 
-This playbook is a common set of commands
+This playbook installs a common set of libraries / packages and attempts to
+configure a more secure installation.
+
+# packages installed
+
+ * iptables
+ * iptables-persistent
+ * ntp
 
 # todo
- * fill out ntpd conf
+
+ * finish security.yml
