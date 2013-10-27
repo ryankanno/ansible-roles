@@ -1,4 +1,18 @@
 ---
-  - name: 'iptables: conf present'
-    template: src=iptables.j2 dest=/etc/iptables.up.rules mode=0600 owner=root group=root
-    tags: iptables
+  - name: common | iptables.yml >> iptables installed
+    apt: pkg=iptables state=present
+    notify:
+      - restart iptables
+    tags: common, iptables
+
+  - name: common | iptables.yml >> iptables-persistent installed
+    apt: pkg=iptables-persistent state=present
+    notify:
+      - restart iptables-persistent
+    tags: common, iptables
+
+  - name: common | iptables.yml >> iptables conf present
+    template: src=iptables.j2 dest=/etc/iptables/rules.v4 owner=root group=root mode=0600 backup=yes
+    notify:
+      - reload iptables
+    tags: common, iptables

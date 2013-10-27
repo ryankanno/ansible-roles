@@ -1,0 +1,8 @@
+---
+  - name: common | apt.yml >> update apt package cache
+    apt: update_cache=yes
+    tags: common
+
+  - name: common | apt.yml >> update apt
+    apt: upgrade=yes
+    tags: common

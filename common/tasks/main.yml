@@ -1,12 +1,4 @@
 ---
-  - name: 'common: install python-apt'
-    raw: 'apt-get install -y python-apt'
-    tags: common
-
-  - name: 'common: update apt package cache'
-    apt: update_cache=yes
-    tags: common
-
-  - name: 'common: update apt'
-    apt: upgrade=yes
-    tags: common
+  - include: apt.yml
+  - include: iptables.yml
+  - include: ntp.yml

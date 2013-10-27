@@ -1,3 +1,12 @@
 ---
-  - name: 'ntp: restart'
-    action: service name=ntpd pattern=/etc/init.d/ntpd state=restarted enabled=yes
+  - name: restart ntp
+    action: name=ntp state=restarted
+
+  - name: restart iptables
+    service: name=iptables state=restarted
+
+  - name: reload iptables
+    shell: /sbin/iptables-restore < /etc/iptables/rules.v4
+
+  - name: restart iptables-persistent
+    service: name=iptables-persistent state=restarted

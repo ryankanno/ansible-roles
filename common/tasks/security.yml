@@ -1,0 +1,37 @@
+---
+  - name: common | security.yml >> fail2ban installed
+    apt: pkg=fail2ban state=present
+
+  - name: common | security.yml >> denyhosts installed
+    apt: pkg=denyhosts state=present
+
+  - name: common | security.yml >> chkrootkit installed
+    apt: pkg=chkrootkit state=present
+
+  - name: common | security.yml >> rkhunter installed
+    apt: pkg=rkhunter state=present
+
+  - name: common | security.yml >> tiger installed
+    apt: pkg=tiger state=present
+
+  - name: common | security.yml >> disable root ssh login
+    lineinfile: dest=/etc/ssh/sshd_config
+                regexp="^PermitRootLogin"
+                line="PermitRootLogin no"
+                state=present
+    notify:
+      - restart sshd
+
+  - name: common | security.yml >> disable password authentication
+    lineinfile: dest=/etc/ssh/sshd_config
+                regexp="^PasswordAuthentication"
+                line="PasswordAuthentication no"
+                state=present
+    notify:
+      - restart sshd
+
+  - name: common | security.yml >> prevent ip spoof
+    lineinfile: dest=/etc/host.conf regexp="^order" line="order bind,hosts" state=present
+
+  - name: common | security.yml >> prevent ip spoof
+    lineinfile: dest=/etc/host.conf regexp="^nospoof" line="nospoof on" state=present
