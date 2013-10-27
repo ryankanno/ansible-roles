@@ -1,4 +1,0 @@
----
-  - name: 'pythondev: present'
-    apt: pkg=pythondev state=latest
-    tags: pythondev, install
