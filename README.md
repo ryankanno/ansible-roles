@@ -15,8 +15,17 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
   * [common](https://github.com/ryankanno/playbooks/tree/master/common)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
+  * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
 
 ### Dragons
 
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
+
+### TODO (Needs to be migrated)
+
+  * openvpn
+  * hadoop
+  * redis
+  * mysql
+  * postgres
