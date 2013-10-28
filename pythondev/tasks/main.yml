@@ -1,0 +1,14 @@
+---
+  - name: pythondev | pythondev.yml >> ${python_library} present
+    apt: pkg=${item.package} state=present
+    with_items:
+      - { package: $python_library }
+    tags: pythondev, install
+
+  - name: pythondev | pythondev.yml >> latest python libraries present
+    apt: pkg=${item.package} state=latest
+    with_items:
+      - { package: 'python-dev' }
+      - { package: 'python-pip' }
+      - { package: 'python-virtualenv' }
+    tags: pythondev, install
