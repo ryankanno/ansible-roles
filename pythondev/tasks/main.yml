@@ -1,11 +1,11 @@
 ---
-  - name: pythondev | pythondev.yml >> ${python_library} present
+  - name: pythondev | main.yml >> ${python.library} present
     apt: pkg=${item.package} state=present
     with_items:
-      - { package: $python_library }
+      - { package: "{{python.library}}" }
     tags: pythondev, install
 
-  - name: pythondev | pythondev.yml >> latest python libraries present
+  - name: pythondev | main.yml >> latest python libraries present
     apt: pkg=${item.package} state=latest
     with_items:
       - { package: 'python-dev' }

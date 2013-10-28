@@ -1,1 +1,2 @@
-python_library: 'python2.7'
+python: 
+  library: 'python2.7'
