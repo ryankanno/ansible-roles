@@ -1,0 +1,27 @@
+---
+  - name: redis | main.yml >> redis {{ redis.version }} present
+    apt: pkg={{ item }}={{ redis.version }} state=present
+    with_items:
+      - redis-server
+    tags: redis, install
+
+  - name: redis | main.yml >> create redis group
+    group: name={{ redis.group }} state=present system=yes
+
+  - name: redis | main.yml >> create redis user
+    user: name={{ redis.user }} group={{ redis.group }} createhome=no shell=/bin/false system=yes state=present
+
+  - name: redis | main.yml >> ensure {{ redis.config.working_dir }} exists
+    file: path={{ redis.config.working_dir }} state=directory mode=0755 group={{ redis.group }} owner={{ redis.user }}
+
+  - name: redis | main.yml >> install redis server config
+    template: src=redis.conf.j2 dest={{ redis.config_dir }}/redis.conf group={{ redis.group }} owner={{ redis.user }}
+    notify:
+      - restart redis
+    tags: redis
+
+  - name: redis | main.yml >> install redis local config
+    template: src=redis.local.conf.j2 dest={{ redis.config_dir }}/redis.local.conf group={{ redis.group }} owner={{ redis.user }}
+    notify:
+      - restart redis
+    tags: redis

@@ -1,0 +1,11 @@
+daemonize yes
+pidfile {{ redis.config.pid_file }}
+port {{ redis.config.port }}
+databases {{ redis.config.num_databases }}
+dir {{ redis.config.working_dir }}
+
+{% if redis.config.password %}
+
+requirepass {{ redis.config.password }}
+
+{% endif %}
