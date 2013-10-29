@@ -21,11 +21,12 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
+  * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
 
 ### TODO (Needs to be migrated)
 
   * openvpn
   * hadoop
-  * redis
   * mysql
   * postgres
+  * ipython
