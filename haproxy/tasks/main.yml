@@ -7,6 +7,6 @@
     template: src={{ item.src }} dest={{ item.dest }} mode=0640 owner=root group=root
     with_items:
       - { src: 'haproxy.cfg.j2', dest: '/etc/haproxy/haproxy.cfg' }
-    notify: 
+    notify:
       - restart haproxy
     tags: haproxy
