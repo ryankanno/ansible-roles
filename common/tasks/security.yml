@@ -30,6 +30,14 @@
     notify:
       - restart sshd
 
+  - name: common | security.yml >> change ssh port
+    lineinfile: dest=/etc/ssh/sshd_config
+                regexp="^Port"
+                line="Port {{ common.ssh.port }}"
+                state=present
+    notify:
+      - restart sshd
+
   - name: common | security.yml >> prevent ip spoof
     lineinfile: dest=/etc/host.conf regexp="^order" line="order bind,hosts" state=present
 
