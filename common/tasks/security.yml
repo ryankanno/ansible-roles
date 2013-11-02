@@ -2,9 +2,6 @@
   - name: common | security.yml >> fail2ban installed
     apt: pkg=fail2ban state=present
 
-  - name: common | security.yml >> denyhosts installed
-    apt: pkg=denyhosts state=present
-
   - name: common | security.yml >> chkrootkit installed
     apt: pkg=chkrootkit state=present
 
