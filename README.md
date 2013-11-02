@@ -14,6 +14,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ### Tested
 
   * [common](https://github.com/ryankanno/playbooks/tree/master/common)
+  * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
 

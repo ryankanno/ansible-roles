@@ -1,0 +1,7 @@
+- name: install iptables
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: False
+  roles:
+    - iptables

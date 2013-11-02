@@ -1,0 +1,9 @@
+---
+  - name: restart iptables
+    service: name=iptables state=restarted enabled=yes
+
+  - name: reload iptables
+    shell: /sbin/iptables-restore < /etc/iptables/rules.v4
+
+  - name: restart iptables-persistent
+    service: name=iptables-persistent state=restarted enabled=yes

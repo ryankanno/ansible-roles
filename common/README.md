@@ -5,8 +5,6 @@ configure a more secure installation.
 
 # packages installed
 
- * iptables
- * iptables-persistent
  * ntp
 
 # todo

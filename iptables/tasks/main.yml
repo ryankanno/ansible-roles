@@ -1,18 +1,18 @@
 ---
-  - name: common | iptables.yml >> iptables installed
+  - name: iptables | main.yml >> iptables installed
     apt: pkg=iptables state=present
     notify:
       - restart iptables
-    tags: common, iptables
+    tags: iptables, install
 
-  - name: common | iptables.yml >> iptables-persistent installed
+  - name: iptables | main.yml >> iptables-persistent installed
     apt: pkg=iptables-persistent state=present
     notify:
       - restart iptables-persistent
-    tags: common, iptables
+    tags: iptables, install
 
-  - name: common | iptables.yml >> iptables conf present
+  - name: iptables | main.yml >> iptables conf present
     template: src=iptables.j2 dest=/etc/iptables/rules.v4 owner=root group=root mode=0600 backup=yes
     notify:
       - reload iptables
-    tags: common, iptables
+    tags: iptables
