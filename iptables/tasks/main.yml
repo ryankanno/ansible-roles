@@ -16,3 +16,11 @@
     notify:
       - reload iptables
     tags: iptables
+
+  - name: iptables | main.yml >> open ports
+    command: iptables -A INPUT -p tcp -m state --state NEW --dport {{ item }} -j ACCEPT
+    with_items: ${iptables.open_ports}
+    notify:
+      - save iptables
+      - reload iptables
+    tags: iptables
