@@ -1,0 +1,4 @@
+ssh:
+  port: 2212
+  enable_password_auth: 'no'
+  enable_pub_key_auth: 'yes'

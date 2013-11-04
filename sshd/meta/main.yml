@@ -1,0 +1,3 @@
+---
+dependencies:
+  - { role: iptables, iptables: { open_ports: [ "{{ ssh.port }}" ] }}
