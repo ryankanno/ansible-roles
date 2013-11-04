@@ -1,8 +1,6 @@
 ---
   - name: iptables | main.yml >> iptables installed
     apt: pkg=iptables state=present
-    notify:
-      - restart iptables
     tags: iptables, install
 
   - name: iptables | main.yml >> iptables-persistent installed
@@ -13,14 +11,4 @@
 
   - name: iptables | main.yml >> iptables conf present
     template: src=iptables.j2 dest=/etc/iptables/rules.v4 owner=root group=root mode=0600 backup=yes
-    notify:
-      - reload iptables
-    tags: iptables
-
-  - name: iptables | main.yml >> open ports
-    command: iptables -A INPUT -p tcp -m state --state NEW --dport {{ item }} -j ACCEPT
-    with_items: ${iptables.open_ports}
-    notify:
-      - save iptables
-      - reload iptables
     tags: iptables

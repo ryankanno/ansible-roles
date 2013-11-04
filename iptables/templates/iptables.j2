@@ -1,11 +1,14 @@
 # {{ ansible_managed }}
-
 *filter
 
 -A INPUT -i lo -j ACCEPT
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 -A OUTPUT -j ACCEPT
+
+{% for open_port in iptables.open_ports %}
+-A INPUT -p tcp -m state --state NEW --dport {{ open_port }} -j ACCEPT
+{% endfor %}
 
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
