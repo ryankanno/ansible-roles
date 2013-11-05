@@ -1,18 +1,30 @@
 # {{ ansible_managed }}
 *filter
 
+# allow loopback traffic
 -A INPUT -i lo -j ACCEPT
+
+# drop 127.0.0.0/8 unless from loopback
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
+
+# allow established
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# allow outbound
 -A OUTPUT -j ACCEPT
 
+# allow iptables.open_ports
 {% for open_port in iptables.open_ports %}
 -A INPUT -p tcp -m state --state NEW --dport {{ open_port }} -j ACCEPT
 {% endfor %}
 
+# allow pings
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+
+# log blocked
 -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 
+# reject all the things
 -A INPUT -j REJECT --reject-with icmp-host-prohibited
 -A FORWARD -j REJECT --reject-with icmp-host-prohibited
 
