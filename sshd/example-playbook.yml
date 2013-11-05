@@ -1,4 +1,4 @@
-- name: configure ssh
+- name: configure sshd
   hosts: vagrant
   user: vagrant
   sudo: True

@@ -4,7 +4,7 @@
 # See the sshd_config(5) manpage for details
 
 # What ports, IPs and protocols we listen for
-Port {{ ssh.port }}
+Port {{ sshd.port }}
 
 # Use these options to restrict which interfaces/protocols sshd will bind to
 #ListenAddress ::
@@ -34,7 +34,7 @@ PermitRootLogin no
 StrictModes yes
 
 RSAAuthentication yes
-PubkeyAuthentication {{ ssh.enable_pub_key_auth }}
+PubkeyAuthentication {{ sshd.enable_pub_key_auth }}
 AuthorizedKeysFile %h/.ssh/authorized_keys
 
 # Don't read the user's ~/.rhosts and ~/.shosts files
@@ -54,7 +54,7 @@ PermitEmptyPasswords no
 ChallengeResponseAuthentication no
 
 # Change to no to disable tunnelled clear text passwords
-PasswordAuthentication {{ ssh.enable_password_auth }}
+PasswordAuthentication {{ sshd.enable_password_auth }}
 
 # Kerberos options
 #KerberosAuthentication no
@@ -88,4 +88,4 @@ AcceptEnv LANG LC_*
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
-UsePAM {{ ssh.enable_pam_auth }}
+UsePAM {{ sshd.enable_pam_auth }}

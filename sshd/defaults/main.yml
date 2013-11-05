@@ -1,4 +1,5 @@
-ssh:
+sshd:
   port: 2212
+  enable_pam_auth: 'no'
   enable_password_auth: 'no'
   enable_pub_key_auth: 'yes'

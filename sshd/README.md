@@ -1,3 +1,3 @@
 # sshd
 
-This playbook helps configure ssh
+This playbook helps configure sshd
