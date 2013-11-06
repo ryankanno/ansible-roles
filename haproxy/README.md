@@ -4,4 +4,5 @@ This playbook installs [haproxy](http://haproxy.1wt.eu/)
 
 # todo
 
-  * configure the template
+  * configure haproxy.cfg
+  * investigate why sysv startup script doesn't work (even with ENABLED=1)
