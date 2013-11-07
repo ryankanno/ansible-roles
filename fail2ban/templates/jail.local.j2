@@ -1,0 +1,29 @@
+## Overrides of distribution-provided fail2ban jail.conf
+#
+[DEFAULT]
+
+ignoreip  = {{ fail2ban.config.ignoreip }}
+bantime   = {{ fail2ban.config.bantime }}
+destemail = {{ fail2ban.config.destemail }}
+
+# Default banning action
+banaction = iptables-multiport
+
+# Default action (e.g. action_ for ban only, action_mw for ban + email, action_mwl for ban + email w relevant log entries)
+action = {{ fail2ban.config.action }}
+
+[ssh]
+
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
+
+[ssh-ddos]
+
+enabled  = true
+port     = ssh
+filter   = sshd-ddos
+logpath  = /var/log/auth.log
+maxretry = 6

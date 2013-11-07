@@ -17,12 +17,13 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
+  * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
 
 ### Dragons
 
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
+  * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
-  * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
 
 ### TODO (Needs to be migrated)
 
@@ -31,3 +32,6 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * mysql
   * postgres
   * ipython
+  * kafka
+  * erlang
+  * storm
