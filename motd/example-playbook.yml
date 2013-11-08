@@ -1,0 +1,7 @@
+- name: configure motd
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: True
+  roles:
+    - motd

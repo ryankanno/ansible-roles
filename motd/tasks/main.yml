@@ -1,0 +1,6 @@
+---
+  - name: motd | main.yml >> motd present
+    template: src={{ item.src }} dest={{ item.dest }} mode=0755 owner=root group=root
+    with_items:
+        - { src: '95-nyan-cat.j2', dest: '/etc/update-motd.d/95-nyan-cat' }
+    tags: motd
