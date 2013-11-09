@@ -1,0 +1,7 @@
+- name: install apt
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: False
+  roles:
+    - apt

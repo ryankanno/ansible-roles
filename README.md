@@ -13,6 +13,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ### Tested
 
+  * [apt](https://github.com/ryankanno/playbooks/tree/master/apt)
   * [common](https://github.com/ryankanno/playbooks/tree/master/common)
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [motd](https://github.com/ryankanno/playbooks/tree/master/motd)
