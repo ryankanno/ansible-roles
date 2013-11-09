@@ -1,3 +1,2 @@
 ---
-  - include: apt.yml
   - include: ntp.yml
