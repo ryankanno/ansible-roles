@@ -25,11 +25,14 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ### Dragons
 
+These should work, but just need to have more configuration options available
+
   * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
   * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
   * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
+  * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
 
 ### TODO (Needs to be migrated)
