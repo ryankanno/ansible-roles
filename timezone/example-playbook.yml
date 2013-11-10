@@ -1,0 +1,8 @@
+---
+- name: install timezone
+  hosts: vagrant
+  sudo: True
+  user: vagrant
+  gather_facts: False
+  roles:
+    - timezone
