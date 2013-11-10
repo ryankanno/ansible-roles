@@ -1,0 +1,11 @@
+---
+  - name: logrotate | main.yml >> logrotate present
+    apt: pkg=logrotate={{ logrotate.version }} state=present
+    register: logrotate.installed
+    tags: logrotate, install
+
+  - name: logrotate | main.yml >> logrotate conf present
+    template: src={{ item.src }} dest={{ item.dest }} mode=0644 owner=root group=root
+    with_items:
+      - { src: 'logrotate.conf.j2', dest: '/etc/logrotate.conf' }
+    tags: logrotate

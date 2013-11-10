@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+# see "man logrotate" for details
+# rotate log files weekly
+{{ logrotate.config.rotation_schedule }}
+
+# keep 4 weeks worth of backlogs
+rotate {{ logrotate.config.num_rotate }}
+
+# create new (empty) log files after rotating old ones
+create
+
+# uncomment this if you want your log files compressed
+{% if logrotate.config.should_compress %}
+compress
+{% endif %}
+
+# packages drop log rotation information into this directory
+include /etc/logrotate.d

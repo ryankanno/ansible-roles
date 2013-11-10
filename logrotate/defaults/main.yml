@@ -1,0 +1,7 @@
+logrotate:
+  version: 3.7.8-6ubuntu6
+  config:
+    # daily, weekly, monthly, yearly
+    rotation_schedule: 'weekly'
+    num_rotate: 4
+    should_compress: true

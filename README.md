@@ -16,6 +16,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [apt](https://github.com/ryankanno/playbooks/tree/master/apt)
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
+  * [logrotate](https://github.com/ryankanno/playbooks/tree/master/logrotate)
   * [motd](https://github.com/ryankanno/playbooks/tree/master/motd)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
@@ -36,7 +37,6 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * mysql
   * ntp
   * monit
-  * supervisord
   * postgres
   * ipython
   * kafka
