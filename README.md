@@ -14,8 +14,8 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ### Tested
 
   * [apt](https://github.com/ryankanno/playbooks/tree/master/apt)
-  * [common](https://github.com/ryankanno/playbooks/tree/master/common)
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
+  * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
   * [motd](https://github.com/ryankanno/playbooks/tree/master/motd)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
@@ -30,9 +30,13 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ### TODO (Needs to be migrated)
 
+  * auth
   * openvpn
   * hadoop
   * mysql
+  * ntp
+  * monit
+  * supervisord
   * postgres
   * ipython
   * kafka
