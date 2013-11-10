@@ -1,0 +1,2 @@
+rsyslog:
+  version: 5.8.6-1ubuntu9

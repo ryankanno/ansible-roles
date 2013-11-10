@@ -1,0 +1,11 @@
+---
+  - name: rsyslog | main.yml >> rsyslog present
+    apt: pkg=rsyslog={{ rsyslog.version }} state=present
+    register: rsyslog.installed
+    tags: logrotate, install
+
+  - name: rsyslog | main.yml >> rsyslog conf present
+    template: src={{ item.src }} dest={{ item.dest }} mode=0644 owner=root group=root
+    with_items:
+      - { src: 'rsyslog.conf.j2', dest: '/etc/rsyslog.conf' }
+    tags: rsyslog

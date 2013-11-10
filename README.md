@@ -5,7 +5,8 @@
 My [Ansible](https://github.com/ansible/ansible) playbooks.
 
 As a warning, these playbooks will be in somewhat a state of flux for the next
-few weeks as I migrate infrastructure codes to Ansible. :D
+few weeks as I migrate infrastructure codes to Ansible.  These are generally
+the technologies I tend to install for new machines.
 
 Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/vagrant-ansible) to play around with them!
 
@@ -26,19 +27,18 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
   * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
+  * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
+  * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
   * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
 
 ### TODO (Needs to be migrated)
 
-  * auth
   * openvpn
   * hadoop
   * mysql
-  * ntp
   * monit
   * postgres
   * ipython
   * kafka
-  * erlang
   * storm
