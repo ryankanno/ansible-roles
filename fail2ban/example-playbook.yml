@@ -1,7 +1,7 @@
-- name: configure sshd
+- name: configure fail2ban
   hosts: vagrant
   user: vagrant
   sudo: True
   gather_facts: False
   roles:
-    - sshd
+    - fail2ban
