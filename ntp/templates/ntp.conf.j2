@@ -1,0 +1,14 @@
+# {{ ansible_managed }}
+
+driftfile /var/lib/ntp/drift
+
+restrict 127.0.0.1
+restrict -6 ::1
+
+{% for server in ntp.servers %}
+server {{ server }}
+restrict {{ server }} nomodify notrap noquery
+{% endfor %}
+
+includefile /etc/ntp/crypto/pw
+keys /etc/ntp/keys
