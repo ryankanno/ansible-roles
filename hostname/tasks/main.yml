@@ -1,0 +1,16 @@
+---
+  - name: hostname | main.yml >> set hostname in /etc/hostname
+    copy: content={{ hostname }} dest=/etc/hostname
+    tags: hostname
+    when: hostname is defined
+
+  - name: hostname | main.yml >> configure hostname in /etc/hosts
+    lineinfile: dest=/etc/hosts regexp="^127.0.1.1" line="127.0.1.1 {{ hostname }}"
+    tags: hostname
+    when: hostname is defined
+    register: hostname_configured
+
+  - name: hostname | main.yml >> set hostname
+    command: /bin/hostname -F /etc/hostname
+    tags: hostname
+    when: hostname is defined and hostname_configured.changed

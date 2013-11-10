@@ -1,0 +1,9 @@
+# usage: ansible-playbook example-playbook.yml --extra-vars=""
+---
+- name: install haproxy
+  hosts: vagrant
+  sudo: True
+  user: vagrant
+  gather_facts: False
+  roles:
+    - haproxy
