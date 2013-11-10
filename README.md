@@ -15,6 +15,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ### Tested
 
   * [apt](https://github.com/ryankanno/playbooks/tree/master/apt)
+  * [hostname](https://github.com/ryankanno/playbooks/tree/master/hostname)
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
   * [logrotate](https://github.com/ryankanno/playbooks/tree/master/logrotate)
