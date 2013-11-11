@@ -1,0 +1,11 @@
+---
+  - name: rubydev | main.yml >> check ruby version
+    command: /usr/local/rvm/bin/rvm list 
+    register: rvm_ruby_version
+    ignore_errors: True
+    tags: rubydev
+
+  - name: rubydev | main.yml >> install ruby 
+    shell: /usr/local/rvm/bin/rvm install --default {{ ruby.version }}
+    when: rvm_ruby_version.stdout.find("{{ ruby.version }}") == -1
+    tags: rubydev, install

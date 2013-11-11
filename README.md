@@ -23,6 +23,8 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
   * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
+  * [rubydev](https://github.com/ryankanno/playbooks/tree/master/rubydev)
+  * [rvm](https://github.com/ryankanno/playbooks/tree/master/rvm)
   * [timezone](https://github.com/ryankanno/playbooks/tree/master/timezone)
 
 ### Dragons

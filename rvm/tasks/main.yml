@@ -1,0 +1,8 @@
+---
+  - name: rvm | main.yml >> curl present
+    apt: pkg=curl state=latest
+    tags: rvm, install
+
+  - name: rvm | main.yml >> install rvm
+    shell: /usr/bin/curl -L https://get.rvm.io | bash -s stable creates=/usr/local/rvm/bin/rvm
+    tags: rvm, install
