@@ -1,0 +1,7 @@
+- name: configure sslcerts
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: False
+  roles:
+    - sslcerts
