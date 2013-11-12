@@ -25,6 +25,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
   * [rubydev](https://github.com/ryankanno/playbooks/tree/master/rubydev)
   * [rvm](https://github.com/ryankanno/playbooks/tree/master/rvm)
+  * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
   * [timezone](https://github.com/ryankanno/playbooks/tree/master/timezone)
 
 ### Dragons
