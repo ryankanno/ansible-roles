@@ -1,0 +1,7 @@
+- name: install memcached
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: False
+  roles:
+    - memcached

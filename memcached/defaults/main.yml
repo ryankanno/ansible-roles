@@ -1,0 +1,8 @@
+memcached:
+  version: 1.4.14-0ubuntu1
+  user: memcache
+  group: memcache
+  config:
+    memory: 64
+    port: 11211
+    num_connections: 1024

@@ -34,6 +34,7 @@ These should work, but just need to have more configuration options available
 
   * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
+  * [memcached](https://github.com/ryankanno/playbooks/tree/master/memcached)
   * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
   * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
@@ -42,6 +43,10 @@ These should work, but just need to have more configuration options available
 
 ### TODO (Needs to be migrated)
 
+  * elasticsearch
+  * logstash
+  * kibana
+  * hadoop
   * openvpn
   * hadoop
   * mysql
