@@ -5,7 +5,7 @@ redis:
   group: redis
   config:
     port: 6379
-    password: 
+    password:
     pid_file: /var/run/redis.pid
     num_databases: 16
     working_dir: /var/db/redis
