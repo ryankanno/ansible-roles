@@ -1,2 +1,3 @@
 java:
-  library: openjdk-7-jdk
+  jdk:
+    package: openjdk-7-jdk

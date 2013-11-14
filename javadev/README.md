@@ -2,4 +2,4 @@
 
 This playbook installs packages / libraries for java development
 
-  * openjdk (pass {{ java.library }} to javadev role)
+  * openjdk (pass {{ java.jdk.package }} to javadev role)

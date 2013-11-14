@@ -1,6 +1,6 @@
 ---
-  - name: javadev | main.yml >> {{ java.library }} present
+  - name: javadev | main.yml >> jdk {{ java.jdk.package }} present
     apt: pkg={{ item.package }} state=present
     with_items:
-      - { package: "{{ java.library }}" }
+      - { package: "{{ java.jdk.package }}" }
     tags: javadev, install
