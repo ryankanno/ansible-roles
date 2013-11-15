@@ -1,0 +1,6 @@
+---
+  - name: javaenv | main.yml >> jre {{ java.jre.package }} present
+    apt: pkg={{ item.package }} state=present
+    with_items:
+      - { package: "{{ java.jre.package }}" }
+    tags: javaenv, install

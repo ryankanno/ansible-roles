@@ -1,0 +1,4 @@
+java:
+  jre:
+    package: openjdk-7-jre
+

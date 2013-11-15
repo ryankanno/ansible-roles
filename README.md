@@ -18,6 +18,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [hostname](https://github.com/ryankanno/playbooks/tree/master/hostname)
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
+  * [javaenv](https://github.com/ryankanno/playbooks/tree/master/javaenv)
   * [logrotate](https://github.com/ryankanno/playbooks/tree/master/logrotate)
   * [motd](https://github.com/ryankanno/playbooks/tree/master/motd)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
