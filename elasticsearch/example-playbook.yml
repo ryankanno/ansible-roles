@@ -1,0 +1,7 @@
+- name: configure elasticsearch
+  hosts: vagrant
+  user: vagrant
+  sudo: True
+  gather_facts: False
+  roles:
+    - elasticsearch

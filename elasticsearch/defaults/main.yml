@@ -1,0 +1,6 @@
+elasticsearch:
+  user: elasticsearch
+  group: elasticsearch
+  download_url: 'http://download.elasticsearch.org/elasticsearch/elasticsearch/'
+  package: 'elasticsearch-0.20.2.deb'
+  staging_dir: '/var/tmp'
