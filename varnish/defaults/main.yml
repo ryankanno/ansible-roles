@@ -1,0 +1,5 @@
+varnish:
+  version: 3.0.2-2
+  user: varnish
+  group: varnish
+  config_dir: /etc/varnish

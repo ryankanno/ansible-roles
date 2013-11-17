@@ -42,6 +42,7 @@ These should work, but just need to have more configuration options available
   * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
   * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
+  * [varnish](https://github.com/ryankanno/playbooks/tree/master/varnish)
 
 ### TODO (Needs to be migrated)
 
