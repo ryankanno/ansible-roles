@@ -1,0 +1,31 @@
+---
+  - name: logstash | main.yml >> create logstash group
+    group: name={{ logstash.group }} state=present system=yes
+    when: logstash.group is defined
+
+  - name: logstash | main.yml >> create logstash user
+    user: name={{ logstash.user }} group={{ logstash.group }} createhome=no shell=/bin/false system=yes state=present
+    when: logstash.user is defined
+
+  - name: logstash | main.yml >> ensure logstash app directory exists
+    file: path=/opt/logstash state=directory mode=0755 group=root owner=root
+    tags: logstash
+
+  - name: logstash | main.yml >> download logstash
+    get_url: url={{ logstash.download_url }}/{{ logstash.package }} dest=/opt/logstash/logstash.jar thirsty=no mode=0644
+    register: logstash_downloaded
+    tags: logstash
+
+  - name: logstash | main.yml >> install logstash init script
+    template: src=logstash.j2 dest=/etc/init.d/logstash owner=root group=root mode=0755
+    tags: logstash
+
+  - name: logstash | main.yml >> ensure logstash config directory exists
+    file: path=/etc/logstash state=directory mode=0755 group=root owner=root
+    tags: logstash
+
+  - name: logstash | main.yml >> install logstash config
+    template: src=logstash.conf.j2 dest=/etc/logstash/logstash.conf owner=root group=root mode=0755
+    notify:
+      - restart logstash
+    tags: logstash

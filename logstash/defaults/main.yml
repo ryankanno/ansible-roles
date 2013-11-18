@@ -1,0 +1,6 @@
+logstash:
+  user: logstash
+  group: logstash
+  download_url: 'https://download.elasticsearch.org/logstash/logstash/'
+  package: 'logstash-1.2.2-flatjar.jar'
+  staging_dir: '/var/tmp'
