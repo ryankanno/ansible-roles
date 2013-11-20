@@ -1,0 +1,7 @@
+ipython_notebook:
+  version: 0.13.1~rc3-0ubuntu1
+  scientific_libraries:
+    - { package: 'python-matplotlib', version: '1.1.1-1' }
+    - { package: 'python-scipy', version: '0.10.1+dfsg1-4' }
+    - { package: 'python-pandas', version: '0.8.0-2' }
+    - { package: 'python-nose', version: '1.1.2-3' }

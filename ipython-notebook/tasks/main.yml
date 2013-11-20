@@ -1,0 +1,11 @@
+---
+  - name: ipython-notebook | main.yml >> ipython-notebook present
+    apt: pkg=ipython-notebook={{ ipython_notebook.version }} state=present
+    tags: ipython-notebook, install
+    register: ipython_notebook_installed
+
+  - name: ipython-notebook | main.yml >> ipython-notebook scientific libraries present
+    apt: pkg={{ item.package }}={{ item.version }} state=present
+    with_items: ipython_notebook.scientific_libraries
+    tags: ipython-notebook
+    when: ipython_notebook.scientific_libraries is defined

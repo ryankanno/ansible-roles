@@ -37,6 +37,7 @@ These should work, but just need to have more configuration options available
   * [elasticsearch](https://github.com/ryankanno/playbooks/tree/master/elasticsearch)
   * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
+  * [ipython-notebook](https://github.com/ryankanno/playbooks/tree/master/ipython-notebook)
   * [logstash](https://github.com/ryankanno/playbooks/tree/master/logstash)
   * [memcached](https://github.com/ryankanno/playbooks/tree/master/memcached)
   * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
@@ -55,6 +56,5 @@ These should work, but just need to have more configuration options available
   * mysql
   * monit
   * postgres
-  * ipython
   * kafka
   * storm
