@@ -5,3 +5,7 @@ ipython_notebook:
     - { package: 'python-scipy', version: '0.10.1+dfsg1-4' }
     - { package: 'python-pandas', version: '0.8.0-2' }
     - { package: 'python-nose', version: '1.1.2-3' }
+  config:
+    ip: '*'
+    port: 9999
+    profile: ryankanno

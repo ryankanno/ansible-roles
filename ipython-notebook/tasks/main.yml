@@ -9,3 +9,17 @@
     with_items: ipython_notebook.scientific_libraries
     tags: ipython-notebook
     when: ipython_notebook.scientific_libraries is defined
+
+  - name: ipython-notebook | main.yml >> ipython profile created
+    command: ipython profile create {{ ipython_notebook.config.profile }}
+    tags: ipython-notebook
+    when: ipython_notebook.config.profile is defined
+    register: ipython_notebook_profile_created
+
+  - name: ipython-notebook | main.yml >> ipython conf present
+    template: src={{ item.src }} dest={{ item.dest }} mode=0644
+    with_items:
+      - { src: 'ipython_notebook_config.py.j2', dest: "~/.ipython/profile_{{ ipython_notebook.config.profile }}/ipython_notebook_config.py" }
+    tags: ipython-notebook
+    sudo: False
+    when: ipython_notebook_profile_created.changed

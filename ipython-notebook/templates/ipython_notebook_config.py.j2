@@ -1,0 +1,4 @@
+c = get_config()
+c.NotebookApp.open_browser = False
+c.NotebookApp.ip = '{{ ipython_notebook.config.ip }}'
+c.NotebookApp.port = {{ ipython_notebook.config.port }}
