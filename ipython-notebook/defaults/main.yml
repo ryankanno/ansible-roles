@@ -10,4 +10,5 @@ ipython_notebook:
     port: 9999
     profile: foo
     password: bar
-    certfile_path: '/home/vagrant/ssl/cert/'
+    certfile_dir: '/home/vagrant/ssl/cert/'
+    notebook_dir: '/home/vagrant/notebooks/'

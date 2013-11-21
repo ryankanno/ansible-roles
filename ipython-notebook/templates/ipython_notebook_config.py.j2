@@ -2,5 +2,8 @@ c = get_config()
 c.NotebookApp.open_browser = False
 c.NotebookApp.ip = '{{ ipython_notebook.config.ip }}'
 c.NotebookApp.port = {{ ipython_notebook.config.port }}
-c.NotebookApp.certfile = u'{{ ipython_notebook.config.certfile_path }}server.pem'
+c.NotebookApp.certfile = u'{{ ipython_notebook.config.certfile_dir }}server.pem'
 c.NotebookApp.password = u'{{ ipython_notebook_sha1_password.stdout }}'
+
+c.NotebookManager.notebook_dir = u'{{ ipython_notebook.config.notebook_dir }}'
+c.FileNotebookManager.notebook_dir = u'{{ ipython_notebook.config.notebook_dir }}'

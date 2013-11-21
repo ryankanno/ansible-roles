@@ -21,13 +21,18 @@
     when: ipython_notebook.config.profile is defined
     register: ipython_notebook_profile_created
 
-  - name: ipython-notebook | main.yml >> ensure certfile_path exists
-    file: path={{ ipython_notebook.config.certfile_path }} state=directory mode=0755
+  - name: ipython-notebook | main.yml >> ensure certfile_dir exists
+    file: path={{ ipython_notebook.config.certfile_dir }} state=directory mode=0755
     sudo: False
     tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython cert created
-    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj "/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}" -keyout {{ ipython_notebook.config.certfile_path }}server.pem -out {{ ipython_notebook.config.certfile_path }}server.pem
+    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj "/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}" -keyout {{ ipython_notebook.config.certfile_dir }}server.pem -out {{ ipython_notebook.config.certfile_dir }}server.pem
+    tags: ipython-notebook
+
+  - name: ipython-notebook | main.yml >> ensure notebook_dir exists
+    file: path={{ ipython_notebook.config.notebook_dir }} state=directory mode=0755
+    sudo: False
     tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython password set
