@@ -8,4 +8,6 @@ ipython_notebook:
   config:
     ip: '*'
     port: 9999
-    profile: ryankanno
+    profile: foo
+    password: bar
+    certfile_path: '/home/vagrant/ssl/cert/'

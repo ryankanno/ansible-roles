@@ -4,6 +4,10 @@
     tags: ipython-notebook, install
     register: ipython_notebook_installed
 
+  - name: ipython-notebook | main.yml >> openssl present
+    apt: pkg=openssl state=latest
+    tags: ipython-notebook, install
+
   - name: ipython-notebook | main.yml >> ipython-notebook scientific libraries present
     apt: pkg={{ item.package }}={{ item.version }} state=present
     with_items: ipython_notebook.scientific_libraries
@@ -12,14 +16,30 @@
 
   - name: ipython-notebook | main.yml >> ipython profile created
     command: ipython profile create {{ ipython_notebook.config.profile }}
+    sudo: False
     tags: ipython-notebook
     when: ipython_notebook.config.profile is defined
     register: ipython_notebook_profile_created
+
+  - name: ipython-notebook | main.yml >> ensure certfile_path exists
+    file: path={{ ipython_notebook.config.certfile_path }} state=directory mode=0755
+    sudo: False
+    tags: ipython-notebook
+
+  - name: ipython-notebook | main.yml >> ipython cert created
+    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj "/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}" -keyout {{ ipython_notebook.config.certfile_path }}server.pem -out {{ ipython_notebook.config.certfile_path }}server.pem
+    tags: ipython-notebook
+
+  - name: ipython-notebook | main.yml >> ipython password set
+    command: python -c 'from IPython.lib import passwd; print passwd("{{ ipython_notebook.config.password }}")'
+    register: ipython_notebook_sha1_password
+    tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython conf present
     template: src={{ item.src }} dest={{ item.dest }} mode=0644
     with_items:
       - { src: 'ipython_notebook_config.py.j2', dest: "~/.ipython/profile_{{ ipython_notebook.config.profile }}/ipython_notebook_config.py" }
-    tags: ipython-notebook
     sudo: False
+    tags: ipython-notebook
     when: ipython_notebook_profile_created.changed
+
