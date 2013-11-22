@@ -1,3 +1,7 @@
 apt:
   cache_valid_time: 3600
   should_upgrade: true
+
+proxy_env:
+  http_proxy: ""
+  https_proxy: ""

@@ -1,13 +1,16 @@
 ---
   - name: apt | main.yml >> ensure apt sources.list present
     copy: src=sources.list dest=/etc/apt/sources.list owner=root group=root mode=0644 backup=yes
+    environment: proxy_env
     tags: apt
 
   - name: apt | main.yml >> update apt package cache
     apt: update_cache=yes cache_valid_time={{ apt.cache_valid_time }}
+    environment: proxy_env
     tags: apt
 
   - name: apt | main.yml >> upgrade installed packages
     apt: upgrade=yes
+    environment: proxy_env
     when: apt.should_upgrade
     tags: apt
