@@ -1,50 +1,58 @@
 ---
   - name: ipython-notebook | main.yml >> ipython-notebook present
     apt: pkg=ipython-notebook={{ ipython_notebook.version }} state=present
+    environment: proxy_env
     tags: ipython-notebook, install
-    register: ipython_notebook_installed
 
-  - name: ipython-notebook | main.yml >> openssl present
+  - name: ipython-notebook | main.yml >> latest openssl present
     apt: pkg=openssl state=latest
+    environment: proxy_env
     tags: ipython-notebook, install
 
   - name: ipython-notebook | main.yml >> ipython-notebook scientific libraries present
     apt: pkg={{ item.package }}={{ item.version }} state=present
     with_items: ipython_notebook.scientific_libraries
-    tags: ipython-notebook
+    environment: proxy_env
     when: ipython_notebook.scientific_libraries is defined
+    tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython profile created
-    command: ipython profile create {{ ipython_notebook.config.profile }}
+    command: ipython profile create {{ item.config.profile }} creates=/home/{{ item.user }}/.ipython/profile_{{ item.config.profile }}
+    # sudo_user: {{ item.user }} <-- next update of ansible
     sudo: False
+    with_items: ipython_notebook.notebooks
+    when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
-    when: ipython_notebook.config.profile is defined
-    register: ipython_notebook_profile_created
 
-  - name: ipython-notebook | main.yml >> ensure certfile_dir exists
-    file: path={{ ipython_notebook.config.certfile_dir }} state=directory mode=0755
+  - name: ipython-notebook | main.yml >> ensure certfile directory exists
+    file: path={{ item.config.certfile_dir }} state=directory mode=0755 owner={{ item.user }} group={{ item.group }}
+    # sudo_user: {{ item.user }} <-- next update of ansible
     sudo: False
+    with_items: ipython_notebook.notebooks
+    when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython cert created
-    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj "/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}" -keyout {{ ipython_notebook.config.certfile_dir }}server.pem -out {{ ipython_notebook.config.certfile_dir }}server.pem
+    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj {{ item.config.certfile_subject }} -keyout {{ item.config.certfile_dir }}server.pem -out {{ item.config.certfile_dir }}server.pem
+    with_items: ipython_notebook.notebooks
+    when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
+    # check permissions here probably
 
-  - name: ipython-notebook | main.yml >> ensure notebook_dir exists
-    file: path={{ ipython_notebook.config.notebook_dir }} state=directory mode=0755
+  - name: ipython-notebook | main.yml >> ensure notebook directory exists
+    file: path={{ item.config.notebook_dir }} state=directory mode=0755 owner={{ item.user }} group={{ item.group }}
     sudo: False
+    with_items: ipython_notebook.notebooks
+    when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython password set
-    command: python -c 'from IPython.lib import passwd; print passwd("{{ ipython_notebook.config.password }}")'
+    command: python -c 'from IPython.lib import passwd; print passwd("{{ ipython_notebook.password }}")'
     register: ipython_notebook_sha1_password
     tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython conf present
-    template: src={{ item.src }} dest={{ item.dest }} mode=0644
-    with_items:
-      - { src: 'ipython_notebook_config.py.j2', dest: "~/.ipython/profile_{{ ipython_notebook.config.profile }}/ipython_notebook_config.py" }
+    template: src=ipython_notebook_config.py.j2 dest=/home/{{ item.user }}/.ipython/profile_{{ item.config.profile }}/ipython_notebook_config.py mode=0644 owner={{ item.user }} group={{ item.group }}
     sudo: False
+    with_items: ipython_notebook.notebooks
     tags: ipython-notebook
-    when: ipython_notebook_profile_created.changed
-

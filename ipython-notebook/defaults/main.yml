@@ -5,10 +5,16 @@ ipython_notebook:
     - { package: 'python-scipy', version: '0.10.1+dfsg1-4' }
     - { package: 'python-pandas', version: '0.8.0-2' }
     - { package: 'python-nose', version: '1.1.2-3' }
-  config:
-    ip: '*'
-    port: 9999
-    profile: foo
-    password: bar
-    certfile_dir: '/home/vagrant/ssl/cert/'
-    notebook_dir: '/home/vagrant/notebooks/'
+  password: bar
+  notebooks:
+    -
+      user: vagrant
+      group: vagrant
+      config:
+        ip: '*'
+        port: 9999
+        profile: foo
+        sha1_password:
+        certfile_subject: '/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}'
+        certfile_dir: '/home/vagrant/ssl/cert/'
+        notebook_dir: '/home/vagrant/notebooks/'
