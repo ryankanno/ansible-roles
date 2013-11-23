@@ -1,0 +1,10 @@
+python:
+  package: python2.7
+  version: 2.7.3-5ubuntu4
+  libraries:
+    latest:
+      - { package: 'python-dev' }
+      - { package: 'python-pip' }
+      - { package: 'python-virtualenv' }
+    versioned:
+      # fill me, seymour

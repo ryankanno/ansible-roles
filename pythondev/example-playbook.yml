@@ -1,7 +1,0 @@
-- name: install pythondev
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - { role: pythondev }
