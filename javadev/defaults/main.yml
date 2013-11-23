@@ -1,3 +1,9 @@
 java:
   jdk:
     package: openjdk-7-jdk
+    version: 7u25-2.3.10-1ubuntu0.12.10.2
+  libraries:
+    latest:
+      # fill me, seymour
+    versioned:
+      # fill me, seymour
