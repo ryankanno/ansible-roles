@@ -3,5 +3,5 @@ apt:
   should_upgrade: true
 
 proxy_env:
-  http_proxy: ""
-  https_proxy: ""
+  http_proxy:
+  https_proxy:
