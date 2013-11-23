@@ -1,6 +1,6 @@
 ---
   - name: apt | main.yml >> ensure apt sources.list present
-    copy: src=sources.list dest=/etc/apt/sources.list owner=root group=root mode=0644 backup=yes
+    copy: src={{ ansible_distribution }}/{{ ansible_distribution_release }}/sources.list dest=/etc/apt/sources.list mode=0644 owner=root group=root backup=yes
     environment: env.proxies
     tags: apt
 
