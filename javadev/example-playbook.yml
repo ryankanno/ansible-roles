@@ -1,7 +1,0 @@
-- name: install javadev
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - javadev
