@@ -2,18 +2,19 @@
   - name: pythondev | main.yml >> python present
     apt: pkg={{ python.package }}={{ python.version }} state=present
     environment: env.proxies
-    tags: pythondev, install
+    when: python.package is defined and python.package and python.version is defined and python.version
+    tags: pythondev, pythondev-python
 
   - name: pythondev | main.yml >> latest python libraries present
     apt: pkg={{ item.package }} state=latest
     with_items: python.libraries.latest
     environment: env.proxies
     when: python.libraries.latest is defined and python.libraries.latest
-    tags: pythondev, install
+    tags: pythondev
 
   - name: pythondev | main.yml >> versioned python libraries present
     apt: pkg={{ item.package }}={{ item.version }} state=present
     with_items: python.libraries.versioned
     environment: env.proxies
     when: python.libraries.versioned is defined and python.libraries.versioned
-    tags: pythondev, install
+    tags: pythondev

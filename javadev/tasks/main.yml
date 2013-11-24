@@ -3,24 +3,24 @@
     apt: pkg={{ java.jdk.package }}={{ java.jdk.version }} state=present
     environment: env.proxies
     when: java.jdk is defined and java.jdk
-    tags: javadev, install
+    tags: javadev, javadev-jdk
 
   - name: javadev | main.yml >> sdk present
     apt: pkg={{ java.sdk.package }}={{ java.sdk.version }} state=present
     environment: env.proxies
     when: java.sdk is defined and java.sdk
-    tags: javadev, install
+    tags: javadev, javadev-sdk
 
   - name: javadev | main.yml >> latest java libraries present
     apt: pkg={{ item.package }} state=latest
     with_items: java.libraries.latest
     environment: env.proxies
     when: java.libraries.latest is defined and java.libraries.latest
-    tags: javadev, install
+    tags: javadev
 
   - name: javadev | main.yml >> versioned java libraries present
     apt: pkg={{ item.package }}={{ item.version }} state=present
     with_items: java.libraries.versioned
     environment: env.proxies
     when: java.libraries.versioned is defined and java.libraries.versioned
-    tags: javadev, install
+    tags: javadev
