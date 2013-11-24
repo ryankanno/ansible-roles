@@ -2,13 +2,11 @@
 
 This playbook installs packages / libraries associated with python development.
 
-## variables
+## playbook variables
 
-  * `python.package` - python package to install
-  * `python.version` - python package version to install
-
-
-  * python (pass {{ python.library }} to pythondev role)
-  * python-dev
-  * python-pip
-  * python-virtualenv
+|name|description|default|
+|----|-----------|-------|
+|`python.package`|python package|python2.7|
+|`python.version`|python package version|2.7.3-5ubuntu4|
+|`python.libraries.latest`|latest python packages to install|python-dev, python-pip, python-virtualenv|
+|`python.libraries.versioned`|versioned python packages to install||
