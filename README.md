@@ -46,6 +46,7 @@ These should work, but just need to have more configuration options available
   * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
   * [varnish](https://github.com/ryankanno/playbooks/tree/master/varnish)
+  * [virtualbox](https://github.com/ryankanno/playbooks/tree/master/virtualbox)
 
 ### TODO (Needs to be migrated)
 
