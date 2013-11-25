@@ -1,2 +1,8 @@
 ipython:
   version: 0.13.1~rc3-0ubuntu1
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
