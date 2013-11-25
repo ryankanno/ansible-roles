@@ -14,3 +14,7 @@ This playbook installs packages / libraries associated with java development.
 |`java.libraries.versioned`|versioned java packages to install||
 
 See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/javadev/defaults/main.yml)
+
+## role dependencies
+
+  * [apt](https://github.com/ryankanno/playbooks/blob/master/apt)
