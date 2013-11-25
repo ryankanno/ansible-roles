@@ -1,0 +1,25 @@
+---
+  - name: virtualbox | main.yml >> virtualbox dependencies present
+    apt: package={{ item }} state=present
+    with_items:
+      - "linux-headers-{{ ansible_kernel }}"
+      - dkms
+      - build-essential
+      - linux-headers-generic
+    tags: virtualbox
+
+  - name: virtualbox | main.yml >> download virtualbox guest additions iso
+    get_url: url={{ virtualbox.guest_additions.iso_url }} dest={{ virtualbox.guest_additions.iso_path }} sha256sum={{ virtualbox.guest_additions.checksum }}
+    tags: virtualbox
+
+  - name: virtualbox | main.yml >> mount virtualbox guest additions iso
+    command: mount {{ virtualbox.guest_additions.iso_path }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}.iso -o loop {{ virtualbox.guest_additions.iso_mountdir }}
+    tags: virtualbox
+
+  - name: virtualbox | main.yml >> install virtualbox guest additions
+    shell: "{{ virtualbox.guest_additions.iso_mountdir }}/VBoxLinuxAdditions.run;true"
+    tags: virtualbox
+
+  - name: virtualbox | main.yml >> mount virtualbox guest additions iso
+    shell: umount {{ virtualbox.guest_additions.iso_mountdir }} removes={{ virtualbox.guest_additions.iso_mountdir }}
+    tags: virtualbox
