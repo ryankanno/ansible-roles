@@ -18,3 +18,7 @@
     environment: env.proxies
     when: python.libraries.versioned is defined and python.libraries.versioned
     tags: pythondev
+
+  - name: pythondev | main.yml >> update pip manually
+    command: pip install pip --upgrade
+    tags: pythondev

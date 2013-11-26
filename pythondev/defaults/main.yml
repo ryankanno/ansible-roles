@@ -1,6 +1,6 @@
 python:
   package: python2.7
-  version: 2.7.3-5ubuntu4
+  version: 2.7.3-5ubuntu4.3
   libraries:
     latest:
       - { package: 'python-dev' }
