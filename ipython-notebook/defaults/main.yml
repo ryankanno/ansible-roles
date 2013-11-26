@@ -18,3 +18,9 @@ ipython_notebook:
         certfile_subject: '/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}'
         certfile_dir: '/home/vagrant/ssl/cert/'
         notebook_dir: '/home/vagrant/notebooks/'
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
