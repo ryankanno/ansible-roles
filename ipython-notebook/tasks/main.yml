@@ -1,18 +1,18 @@
 ---
   - name: ipython-notebook | main.yml >> ipython-notebook present
     apt: pkg=ipython-notebook={{ ipython_notebook.version }} state=present
-    environment: proxy_env
+    environment: env.proxies
     tags: ipython-notebook, install
 
   - name: ipython-notebook | main.yml >> latest openssl present
     apt: pkg=openssl state=latest
-    environment: proxy_env
+    environment: env.proxies
     tags: ipython-notebook, install
 
   - name: ipython-notebook | main.yml >> ipython-notebook scientific libraries present
     apt: pkg={{ item.package }}={{ item.version }} state=present
     with_items: ipython_notebook.scientific_libraries
-    environment: proxy_env
+    environment: env.proxies
     when: ipython_notebook.scientific_libraries is defined
     tags: ipython-notebook
 
