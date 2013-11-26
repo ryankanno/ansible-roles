@@ -1,10 +1,12 @@
 ---
   - name: iptables | main.yml >> iptables installed
     apt: pkg=iptables state=present
+    environment: env.proxies
     tags: iptables, install
 
   - name: iptables | main.yml >> iptables-persistent installed
     apt: pkg=iptables-persistent state=present
+    environment: env.proxies
     notify:
       - restart iptables-persistent
     tags: iptables, install

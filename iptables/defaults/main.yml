@@ -1,3 +1,9 @@
 iptables:
   open_ports:
     - 22
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
