@@ -1,7 +1,0 @@
-- name: install rubydev
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - rubydev
