@@ -1,11 +1,18 @@
 redis:
+  package: redis-server
   version: 2:2.4.15-1
   config_dir: /etc/redis
   user: redis
   group: redis
   config:
-    port: 6379
+    num_databases: 16
     password:
     pid_file: /var/run/redis.pid
-    num_databases: 16
+    port: 6379
     working_dir: /var/db/redis
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:

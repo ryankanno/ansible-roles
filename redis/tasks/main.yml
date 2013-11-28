@@ -1,27 +1,54 @@
 ---
-  - name: redis | main.yml >> redis {{ redis.version }} present
-    apt: pkg={{ item }}={{ redis.version }} state=present
-    with_items:
-      - redis-server
-    tags: redis, install
+  - name: redis | main.yml >> redis present
+    apt: pkg={{ redis.package }}={{ redis.version }} state=present
+    environment: env.proxies
+    when: redis.package is defined and redis.package and redis.version is defined and redis.version
+    tags: redis
 
   - name: redis | main.yml >> create redis group
     group: name={{ redis.group }} state=present system=yes
+    when: redis.group is defined and redis.group
+    tags: redis
 
   - name: redis | main.yml >> create redis user
     user: name={{ redis.user }} group={{ redis.group }} createhome=no shell=/bin/false system=yes state=present
+    when: redis.user is defined and redis.user
+    tags: redis
 
-  - name: redis | main.yml >> ensure {{ redis.config.working_dir }} exists
+  - name: redis | main.yml >> redis working dir exists (owned by redis user/group)
     file: path={{ redis.config.working_dir }} state=directory mode=0755 group={{ redis.group }} owner={{ redis.user }}
+    when: redis.config.working_dir is defined and redis.config.working_dir and redis.group is defined and redis.group and redis.user is defined and redis.user
+    tags: redis
 
-  - name: redis | main.yml >> install redis server config
+  - name: redis | main.yml >> redis working dir exists (owned by root)
+    file: path={{ redis.config.working_dir }} state=directory mode=0755 group=root owner=root
+    when: redis.config.working_dir is defined and redis.config.working_dir and redis.group is not defined or redis.user is not defined
+    tags: redis
+
+  - name: redis | main.yml >> redis server conf present (owned by redis user/group)
     template: src=redis.conf.j2 dest={{ redis.config_dir }}/redis.conf group={{ redis.group }} owner={{ redis.user }}
     notify:
       - restart redis
+    when: redis.config_dir is defined and redis.config_dir and redis.group is defined and redis.group and redis.user is defined and redis.user
     tags: redis
 
-  - name: redis | main.yml >> install redis local config
+  - name: redis | main.yml >> redis server conf present (owned by root)
+    template: src=redis.conf.j2 dest={{ redis.config_dir }}/redis.conf group=root owner=root
+    notify:
+      - restart redis
+    when: redis.config_dir is defined and redis.config_dir and redis.group is not defined or redis.user is not defined
+    tags: redis
+
+  - name: redis | main.yml >> redis server local conf present (owned by redis user/group)
     template: src=redis.local.conf.j2 dest={{ redis.config_dir }}/redis.local.conf group={{ redis.group }} owner={{ redis.user }}
     notify:
       - restart redis
+    when: redis.config_dir is defined and redis.config_dir and redis.group is defined and redis.group and redis.user is defined and redis.user
+    tags: redis
+
+  - name: redis | main.yml >> redis server local conf present (owned by root)
+    template: src=redis.local.conf.j2 dest={{ redis.config_dir }}/redis.local.conf group=root owner=root
+    notify:
+      - restart redis
+    when: redis.config_dir is defined and redis.config_dir and redis.group is not defined or redis.user is not defined
     tags: redis

@@ -508,4 +508,6 @@ activerehashing yes
 # include /path/to/local.conf
 # include /path/to/other.conf
 
+{% if redis.config_dir is defined and redis.config_dir %}
 include {{ redis.config_dir }}/redis.local.conf
+{% endif %}

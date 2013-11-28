@@ -1,12 +1,22 @@
 # {{ ansible_managed }}
 daemonize yes
+
+{% if redis.config.pid_file is defined and redis.config.pid_file %}
 pidfile {{ redis.config.pid_file }}
+{% endif %}
+
+{% if redis.config.port is defined and redis.config.port %}
 port {{ redis.config.port }}
+{% endif %}
+
+{% if redis.config.num_databases is defined and redis.config.num_databases %}
 databases {{ redis.config.num_databases }}
+{% endif %}
+
+{% if redis.config.working_dir is defined and redis.config.working_dir %}
 dir {{ redis.config.working_dir }}
+{% endif %}
 
-{% if redis.config.password %}
-
+{% if redis.config.password is defined and redis.config.password %}
 requirepass {{ redis.config.password }}
-
 {% endif %}
