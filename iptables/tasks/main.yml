@@ -7,10 +7,12 @@
   - name: iptables | main.yml >> iptables-persistent installed
     apt: pkg=iptables-persistent state=present
     environment: env.proxies
-    notify:
-      - restart iptables-persistent
     tags: iptables, install
 
   - name: iptables | main.yml >> iptables conf present
     template: src=iptables.j2 dest=/etc/iptables/rules.v4 owner=root group=root mode=0600 backup=yes
+    tags: iptables
+
+  - name: iptables | main.yml >> start iptables-persistent
+    service: name=iptables-persistent enabled=yes state=restarted
     tags: iptables

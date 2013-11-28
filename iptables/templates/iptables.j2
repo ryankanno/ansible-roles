@@ -14,9 +14,11 @@
 -A OUTPUT -j ACCEPT
 
 # allow iptables.open_ports
+{% if iptables and iptables.open_ports %}
 {% for open_port in iptables.open_ports %}
 -A INPUT -p tcp -m state --state NEW --dport {{ open_port }} -j ACCEPT
 {% endfor %}
+{% endif %}
 
 # allow pings
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
