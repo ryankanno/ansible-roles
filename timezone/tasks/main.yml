@@ -1,11 +1,11 @@
 ---
   - name: timezone | main.yml >> set timezone in /etc/timezone
     template: src=timezone.j2 dest=/etc/timezone
-    tags: timezone
-    when: timezone is defined
+    when: timezone is defined and timezone
     register: timezone_set
+    tags: timezone
 
   - name: timezone | main.yml >> set timezone
     command: dpkg-reconfigure -f noninteractive tzdata
+    when: timezone_set.changed
     tags: timezone
-    when: timezone is defined and timezone_set.changed
