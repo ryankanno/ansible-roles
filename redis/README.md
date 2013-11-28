@@ -1,6 +1,6 @@
 # redis
 
-This playbook installs [redis](http://redis.io)
+This playbook installs [redis](http://redis.io).
 
 ## playbook variables
 
