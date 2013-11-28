@@ -1,8 +1,17 @@
 memcached:
+  package: memcached
   version: 1.4.14-0ubuntu1
   user: memcache
   group: memcache
   config:
+    logfile: /var/log/memcached.log
     memory: 64
+    ip: 127.0.0.1
     port: 11211
     num_connections: 1024
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:

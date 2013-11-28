@@ -1,22 +1,22 @@
 ---
   - name: memcached | main.yml >> memcached present
-    apt: pkg={{ item }}={{ memcached.version }} state=present
-    with_items:
-      - memcached
-    tags: memcached, install
-    register: memcached_present
-
-  - debug: msg="installed memcached {{ memcached.version }}"
-    when: memcached_present.changed
+    apt: pkg={{ memcached.package }}={{ memcached.version }} state=present
+    environment: env.proxies
+    when: memcached.package is defined and memcached.package and memcached.version is defined and memcached.version
+    tags: memcached
 
   - name: memcached | main.yml >> create memcached group
     group: name={{ memcached.group }} state=present system=yes
+    when: memcached.group is defined and memcached.group
+    tags: memcached
 
   - name: memcached | main.yml >> create memcached user
     user: name={{ memcached.user }} group={{ memcached.group }} createhome=no shell=/bin/false system=yes state=present
+    when: memcached.user is defined and memcached.user
+    tags: memcached
 
-  - name: memcached | main.yml >> install memcached config
-    template: src=memcached.conf.j2 dest=/etc/memcached.conf group={{ memcached.group }} owner={{ memcached.user }}
+  - name: memcached | main.yml >> memcached conf present
+    template: src=memcached.conf.j2 dest=/etc/memcached.conf mode=0644 owner=root group=root
     notify:
       - restart memcached
     tags: memcached
