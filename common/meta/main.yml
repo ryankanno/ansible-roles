@@ -1,3 +1,0 @@
----
-dependencies:
-    - { role: apt, apt: { cache_valid_time: 3600, should_upgrade: true }}
