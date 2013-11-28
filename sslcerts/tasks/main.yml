@@ -1,5 +1,4 @@
 ---
   - name: sslcerts | main.yml >> sslcerts present
     apt: pkg=ca-certificates state=latest
-    tags: sslcerts, install
-    register: sslcerts.installed
+    tags: sslcerts

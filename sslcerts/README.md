@@ -1,3 +1,7 @@
 # sslcerts
 
-This playbook helps configure sslcerts
+This playbook helps configure sslcerts.
+
+## playbook variables
+
+  * None
