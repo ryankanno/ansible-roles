@@ -1,6 +1,6 @@
 # apt
 
-This playbook installs and maintains apt
+This playbook installs and maintains apt.
 
 ## playbook variables
 
