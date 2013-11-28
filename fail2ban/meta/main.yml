@@ -1,3 +1,3 @@
 ---
-dependencies:
+  dependencies:
     - { role: sshd, sshd: { port: 2242, enable_pub_key_auth: 'yes', enable_password_auth: 'no', enable_pam_auth: 'no' }}
