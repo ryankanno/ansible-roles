@@ -1,6 +1,7 @@
 ---
-  - name: ntp | main.yml >> latest ntp installed
+  - name: ntp | main.yml >> latest ntp present
     apt: pkg=ntp state=latest
+    environment: env.proxies
     tags: ntp
 
   - name: ntp | main.yml >> ntp conf present

@@ -1,7 +1,0 @@
-- name: install ntp
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - ntp

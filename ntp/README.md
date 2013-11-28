@@ -1,6 +1,6 @@
 # ntp
 
-This playbook installs ntp
+This playbook installs ntp.
 
 ## playbook variables
 
