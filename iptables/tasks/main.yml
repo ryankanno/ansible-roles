@@ -2,12 +2,12 @@
   - name: iptables | main.yml >> iptables installed
     apt: pkg=iptables state=present
     environment: env.proxies
-    tags: iptables, install
+    tags: iptables
 
   - name: iptables | main.yml >> iptables-persistent installed
     apt: pkg=iptables-persistent state=present
     environment: env.proxies
-    tags: iptables, install
+    tags: iptables
 
   - name: iptables | main.yml >> iptables conf present
     template: src=iptables.j2 dest=/etc/iptables/rules.v4 owner=root group=root mode=0600 backup=yes
