@@ -9,20 +9,24 @@
     tags: virtualbox
 
   - name: virtualbox | main.yml >> download virtualbox guest additions iso
-    get_url: url={{ virtualbox.guest_additions.iso_url }} dest={{ virtualbox.guest_additions.iso_path }} sha256sum={{ virtualbox.guest_additions.checksum }}
+    get_url: url={{ virtualbox.guest_additions.iso_url }} dest={{ virtualbox.guest_additions.iso_dir }} sha256sum={{ virtualbox.guest_additions.iso_checksum }}
+    tags: virtualbox
+
+  - name: virtualbox | main.yml >> ensure mount dir exists
+    file: path={{ virtualbox.guest_additions.iso_mountdir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }} state=directory
     tags: virtualbox
 
   - name: virtualbox | main.yml >> mount virtualbox guest additions iso
-    command: mount {{ virtualbox.guest_additions.iso_path }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}.iso -o loop {{ virtualbox.guest_additions.iso_mountdir }} creates=/lib/modules/{{ ansible_kernel }}/updates/dkms/vboxguest.ko
+    command: mount {{ virtualbox.guest_additions.iso_dir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}.iso -o loop {{ virtualbox.guest_additions.iso_mountdir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}
     register: virtualbox_guest_additions_mounted
     tags: virtualbox
 
   - name: virtualbox | main.yml >> install virtualbox guest additions
-    shell: "{{ virtualbox.guest_additions.iso_mountdir }}/VBoxLinuxAdditions.run --nox11 -- --force creates=/lib/modules/{{ ansible_kernel }}/updates/dkms/vboxguest.ko"
+    shell: "{{ virtualbox.guest_additions.iso_mountdir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}/VBoxLinuxAdditions.run --nox11 -- --force creates=/lib/modules/{{ ansible_kernel }}/updates/dkms/vboxguest.ko"
     ignore_errors: True
     tags: virtualbox
 
-  - name: virtualbox | main.yml >> mount virtualbox guest additions iso
-    shell: umount {{ virtualbox.guest_additions.iso_mountdir }} removes={{ virtualbox.guest_additions.iso_mountdir }}
+  - name: virtualbox | main.yml >> umount virtualbox guest additions iso
+    shell: umount {{ virtualbox.guest_additions.iso_mountdir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }} removes={{ virtualbox.guest_additions.iso_mountdir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}
     when: virtualbox_guest_additions_mounted.changed
     tags: virtualbox
