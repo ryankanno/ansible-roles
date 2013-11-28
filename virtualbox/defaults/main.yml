@@ -5,3 +5,9 @@ virtualbox:
     iso_checksum: f0b8fec99c65231641d5d01558abb53fe8b81f131dc71519cb7994c9e297300d
     iso_dir: /tmp
     iso_mountdir: /mnt
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:

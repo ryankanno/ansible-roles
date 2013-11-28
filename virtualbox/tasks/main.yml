@@ -6,6 +6,7 @@
       - dkms
       - build-essential
       - linux-headers-generic
+    environment: env.proxies
     tags: virtualbox
 
   - name: virtualbox | main.yml >> download virtualbox guest additions iso
