@@ -8,3 +8,9 @@ python:
       - { package: 'python-virtualenv' }
     versioned:
       # fill me, seymour
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:

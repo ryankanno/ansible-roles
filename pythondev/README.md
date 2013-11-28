@@ -12,7 +12,3 @@ This playbook installs packages / libraries associated with python development.
 |`python.libraries.versioned`|versioned python packages to install||
 
 See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/pythondev/defaults/main.yml)
-
-## role dependencies
-
-  * [apt](https://github.com/ryankanno/playbooks/blob/master/apt)

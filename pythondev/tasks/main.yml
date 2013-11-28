@@ -3,7 +3,7 @@
     apt: pkg={{ python.package }}={{ python.version }} state=present
     environment: env.proxies
     when: python.package is defined and python.package and python.version is defined and python.version
-    tags: pythondev, pythondev-python
+    tags: pythondev
 
   - name: pythondev | main.yml >> latest python libraries present
     apt: pkg={{ item.package }} state=latest
@@ -17,8 +17,4 @@
     with_items: python.libraries.versioned
     environment: env.proxies
     when: python.libraries.versioned is defined and python.libraries.versioned
-    tags: pythondev
-
-  - name: pythondev | main.yml >> update pip manually
-    command: pip install pip --upgrade
     tags: pythondev
