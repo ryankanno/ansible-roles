@@ -1,4 +1,5 @@
 ---
   - name: sslcerts | main.yml >> sslcerts present
     apt: pkg=ca-certificates state=latest
+    environment: env.proxies
     tags: sslcerts
