@@ -1,6 +1,6 @@
 ---
-  - name: javaenv | main.yml >> jre {{ java.jre.package }} present
-    apt: pkg={{ item.package }} state=present
-    with_items:
-      - { package: "{{ java.jre.package }}" }
-    tags: javaenv, install
+  - name: javaenv | main.yml >> jre present
+    apt: pkg={{ java.jre.package }}={{ java.jre.version }} state=present
+    environment: env.proxies
+    when: java.jre is defined and java.jre
+    tags: javaenv, javaenv-jre

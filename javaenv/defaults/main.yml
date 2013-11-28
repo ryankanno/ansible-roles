@@ -1,4 +1,10 @@
 java:
   jre:
     package: openjdk-7-jre
+    version: 7u25-2.3.10-1ubuntu0.12.10.2
 
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
