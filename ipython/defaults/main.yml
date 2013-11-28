@@ -1,4 +1,5 @@
 ipython:
+  package: ipython
   version: 0.13.1~rc3-0ubuntu1
 
 env:

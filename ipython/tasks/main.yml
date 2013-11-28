@@ -1,5 +1,6 @@
 ---
   - name: ipython | main.yml >> ipython present
-    apt: pkg=ipython={{ ipython.version }} state=present
+    apt: pkg={{ ipython.package }}={{ ipython.version }} state=present
     environment: env.proxies
+    when: ipython.package is defined and ipython.package and ipython.version is defined and ipython.version
     tags: ipython
