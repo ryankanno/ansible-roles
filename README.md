@@ -10,6 +10,12 @@ the technologies I tend to install for new machines.
 
 Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/vagrant-ansible) to play around with them!
 
+## Updates
+
+  * Added env.proxies as an environment variable for all tested playbooks
+  * Updated README in each playbook describing all the available variables
+  * Tried to make each task idempotent (If you see anything that stinks, I take pull requests!)
+
 ## Playbooks
 
 ### Tested
@@ -21,32 +27,29 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
   * [javaenv](https://github.com/ryankanno/playbooks/tree/master/javaenv)
   * [logrotate](https://github.com/ryankanno/playbooks/tree/master/logrotate)
+  * [memcached](https://github.com/ryankanno/playbooks/tree/master/memcached)
   * [motd](https://github.com/ryankanno/playbooks/tree/master/motd)
-  * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
+  * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
   * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
   * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
   * [rubydev](https://github.com/ryankanno/playbooks/tree/master/rubydev)
   * [rvm](https://github.com/ryankanno/playbooks/tree/master/rvm)
+  * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
   * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
   * [timezone](https://github.com/ryankanno/playbooks/tree/master/timezone)
+  * [virtualbox](https://github.com/ryankanno/playbooks/tree/master/virtualbox)
 
 ### Dragons
-
-These should work, but just need to have more configuration options available
 
   * [elasticsearch](https://github.com/ryankanno/playbooks/tree/master/elasticsearch)
   * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
   * [ipython-notebook](https://github.com/ryankanno/playbooks/tree/master/ipython-notebook)
   * [logstash](https://github.com/ryankanno/playbooks/tree/master/logstash)
-  * [memcached](https://github.com/ryankanno/playbooks/tree/master/memcached)
-  * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
+  * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
-  * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
-  * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
   * [varnish](https://github.com/ryankanno/playbooks/tree/master/varnish)
-  * [virtualbox](https://github.com/ryankanno/playbooks/tree/master/virtualbox)
 
 ### TODO (Needs to be migrated)
 
@@ -59,3 +62,11 @@ These should work, but just need to have more configuration options available
   * postgres
   * kafka
   * storm
+
+## Tips
+
+  * If you get apt install errors related to being unable to find a version, please add
+    the apt role. Most of the default package variables are up to date so they
+    require an updated apt cache.  I generally don't include update_cache in individual 
+    apt module calls - just to keep things simple. I also removed the apt meta 
+    dependency to make things more explcit and being able to just call it once for the entire playbook.
