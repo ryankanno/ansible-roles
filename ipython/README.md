@@ -1,6 +1,6 @@
 # ipython
 
-This playbook helps configure ipython
+This playbook helps configure ipython.
 
 ## playbook variables
 
