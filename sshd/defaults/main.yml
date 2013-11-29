@@ -1,5 +1,14 @@
 sshd:
-  port: 2212
-  enable_pam_auth: 'no'
-  enable_password_auth: 'no'
-  enable_pub_key_auth: 'yes'
+  package: openssh-server
+  version: 1:6.0p1-3ubuntu1
+  config:
+    port: 2212
+    enable_pam_auth: no
+    enable_password_auth: no
+    enable_pub_key_auth: yes
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:

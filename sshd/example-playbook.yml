@@ -1,7 +1,0 @@
-- name: configure sshd
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - sshd

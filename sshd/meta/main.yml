@@ -1,3 +1,0 @@
----
-dependencies:
-  - { role: iptables, iptables: { open_ports: [ "{{ sshd.port }}" ] }}
