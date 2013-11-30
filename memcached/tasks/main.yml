@@ -2,7 +2,6 @@
   - name: memcached | main.yml >> memcached present
     apt: pkg={{ memcached.package }}={{ memcached.version }} state=present
     environment: env.proxies
-    when: memcached.package is defined and memcached.package and memcached.version is defined and memcached.version
     tags: memcached
 
   - name: memcached | main.yml >> create memcached group

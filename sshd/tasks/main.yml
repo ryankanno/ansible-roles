@@ -2,7 +2,6 @@
   - name: sshd | main.yml >> sshd present
     apt: pkg={{ sshd.package }}={{ sshd.version }} state=present
     environment: env.proxies
-    when: sshd.package is defined and sshd.package and sshd.version is defined and sshd.version
     tags: sshd
 
   - name: sshd | main.yml >> sshd conf present

@@ -2,7 +2,6 @@
   - name: logrotate | main.yml >> logrotate present
     apt: pkg={{ logrotate.package }}={{ logrotate.version }} state=present
     environment: env.proxies
-    when: logrotate.package is defined and logrotate.package and logrotate.version is defined and logrotate.version
     tags: logrotate
 
   - name: logrotate | main.yml >> logrotate conf present

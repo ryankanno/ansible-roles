@@ -2,7 +2,6 @@
   - name: redis | main.yml >> redis present
     apt: pkg={{ redis.package }}={{ redis.version }} state=present
     environment: env.proxies
-    when: redis.package is defined and redis.package and redis.version is defined and redis.version
     tags: redis
 
   - name: redis | main.yml >> create redis group
