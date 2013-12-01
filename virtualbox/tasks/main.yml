@@ -22,7 +22,7 @@
     register: virtualbox_guest_additions_mounted
     tags: virtualbox
 
-  - name: virtualbox | main.yml >> install virtualbox guest additions
+  - name: virtualbox | main.yml >> virtualbox guest additions present
     shell: "{{ virtualbox.guest_additions.iso_mountdir }}/VBoxGuestAdditions_{{ virtualbox.guest_additions.version }}/VBoxLinuxAdditions.run --nox11 -- --force creates=/lib/modules/{{ ansible_kernel }}/updates/dkms/vboxguest.ko"
     ignore_errors: True
     tags: virtualbox

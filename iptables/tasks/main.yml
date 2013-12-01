@@ -1,10 +1,10 @@
 ---
-  - name: iptables | main.yml >> iptables installed
+  - name: iptables | main.yml >> iptables present
     apt: pkg=iptables state=present
     environment: env.proxies
     tags: iptables
 
-  - name: iptables | main.yml >> iptables-persistent installed
+  - name: iptables | main.yml >> iptables-persistent present
     apt: pkg=iptables-persistent state=present
     environment: env.proxies
     tags: iptables

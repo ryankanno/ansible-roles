@@ -4,6 +4,6 @@
     environment: env.proxies
     tags: rvm
 
-  - name: rvm | main.yml >> install rvm
+  - name: rvm | main.yml >> rvm present
     shell: /usr/bin/curl -L https://get.rvm.io | bash -s stable creates=/usr/local/rvm/bin/rvm
     tags: rvm

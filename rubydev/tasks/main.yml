@@ -5,7 +5,7 @@
     ignore_errors: True
     tags: rubydev
 
-  - name: rubydev | main.yml >> install ruby
+  - name: rubydev | main.yml >> ruby present
     shell: /usr/local/rvm/bin/rvm install --default {{ ruby.version }}
     when: rvm_ruby_version.stdout.find("{{ ruby.version }}") == -1
     tags: rubydev
