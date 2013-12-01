@@ -1,13 +1,13 @@
 ---
   - name: fail2ban | main.yml >> fail2ban present
-    apt: pkg=fail2ban={{ fail2ban.version }} state=present
-    tags: fail2ban, install
-    register: fail2ban.installed
+    apt: pkg={{ fail2ban.package }}={{ fail2ban.version }} state=present
+    environment: env.proxies
+    tags: fail2ban
 
   - name: fail2ban | main.yml >> fail2ban conf present
     template: src={{ item.src }} dest={{ item.dest }} mode=0644 owner=root group=root
     with_items:
       - { src: 'jail.local.j2', dest: '/etc/fail2ban/jail.local' }
     notify:
-      - reload fail2ban
+      - restart fail2ban
     tags: fail2ban

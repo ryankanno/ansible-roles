@@ -3,15 +3,31 @@
 #
 [DEFAULT]
 
+{% if fail2ban.config.ignoreip is defined and fail2ban.config.ignoreip %}
 ignoreip  = {{ fail2ban.config.ignoreip }}
+{% endif %}
+
+{% if fail2ban.config.bantime is defined and fail2ban.config.bantime %}
 bantime   = {{ fail2ban.config.bantime }}
+{% endif %}
+
+{% if fail2ban.config.destemail is defined and fail2ban.config.destemail %}
 destemail = {{ fail2ban.config.destemail }}
+{% endif %}
 
+{% if fail2ban.config.backend is defined and fail2ban.config.backend %}
+backend   = {{ fail2ban.config.backend }}
+{% endif %}
+
+{% if fail2ban.config.banaction is defined and fail2ban.config.banaction %}
 # Default banning action
-banaction = iptables-multiport
+banaction = {{ fail2ban.config.banaction }}
+{% endif %}
 
+{% if fail2ban.config.action is defined and fail2ban.config.action %}
 # Default action (e.g. action_ for ban only, action_mw for ban + email, action_mwl for ban + email w relevant log entries)
 action = {{ fail2ban.config.action }}
+{% endif %}
 
 [ssh]
 

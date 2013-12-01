@@ -1,7 +1,0 @@
-- name: configure fail2ban
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - fail2ban

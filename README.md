@@ -21,9 +21,11 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ### Tested
 
   * [apt](https://github.com/ryankanno/playbooks/tree/master/apt)
+  * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [hostname](https://github.com/ryankanno/playbooks/tree/master/hostname)
   * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
   * [ipython](https://github.com/ryankanno/playbooks/tree/master/ipython)
+  * [ipython-notebook](https://github.com/ryankanno/playbooks/tree/master/ipython-notebook)
   * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
   * [javaenv](https://github.com/ryankanno/playbooks/tree/master/javaenv)
   * [logrotate](https://github.com/ryankanno/playbooks/tree/master/logrotate)
@@ -42,9 +44,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ### Dragons
 
   * [elasticsearch](https://github.com/ryankanno/playbooks/tree/master/elasticsearch)
-  * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
-  * [ipython-notebook](https://github.com/ryankanno/playbooks/tree/master/ipython-notebook)
   * [logstash](https://github.com/ryankanno/playbooks/tree/master/logstash)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
