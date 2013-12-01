@@ -1,7 +1,0 @@
-- name: configure ipython-notebook
-  hosts: vagrant
-  user: vagrant
-  sudo: True
-  gather_facts: False
-  roles:
-    - ipython-notebook

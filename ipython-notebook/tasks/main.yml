@@ -1,13 +1,13 @@
 ---
   - name: ipython-notebook | main.yml >> ipython-notebook present
-    apt: pkg=ipython-notebook={{ ipython_notebook.version }} state=present
+    apt: pkg={{ ipython_notebook.package }}={{ ipython_notebook.version }} state=present
     environment: env.proxies
-    tags: ipython-notebook, install
+    tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> latest openssl present
     apt: pkg=openssl state=latest
     environment: env.proxies
-    tags: ipython-notebook, install
+    tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython-notebook scientific libraries present
     apt: pkg={{ item.package }}={{ item.version }} state=present
@@ -16,7 +16,7 @@
     when: ipython_notebook.scientific_libraries is defined
     tags: ipython-notebook
 
-  - name: ipython-notebook | main.yml >> ipython profile created
+  - name: ipython-notebook | main.yml >> ipython profile(s) present
     command: ipython profile create {{ item.config.profile }} creates=/home/{{ item.user }}/.ipython/profile_{{ item.config.profile }}
     # sudo_user: {{ item.user }} <-- next update of ansible
     sudo: False
@@ -26,28 +26,30 @@
 
   - name: ipython-notebook | main.yml >> ensure certfile directory exists
     file: path={{ item.config.certfile_dir }} state=directory mode=0755 owner={{ item.user }} group={{ item.group }}
-    # sudo_user: {{ item.user }} <-- next update of ansible
-    sudo: False
     with_items: ipython_notebook.notebooks
     when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
 
-  - name: ipython-notebook | main.yml >> ipython cert created
-    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj {{ item.config.certfile_subject }} -keyout {{ item.config.certfile_dir }}server.pem -out {{ item.config.certfile_dir }}server.pem
+  - name: ipython-notebook | main.yml >> ipython-notebook cert created
+    command: openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -subj {{ item.config.certfile_subject }} -keyout {{ item.config.certfile_dir }}/{{ item.user }}_notebook_server.pem -out {{ item.config.certfile_dir }}/{{ item.user }}_notebook_server.pem creates={{ item.config.certfile_dir }}/{{ item.user }}_notebook_server.pem
     with_items: ipython_notebook.notebooks
     when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
-    # check permissions here probably
+
+  - name: ipython-notebook | main.yml >> ensure cert permissions
+    file: path={{ item.config.certfile_dir }}/{{ item.user }}_notebook_server.pem state=file mode=0600 owner={{ item.user }} group={{ item.group }}
+    with_items: ipython_notebook.notebooks
+    when: ipython_notebook.notebooks is defined
+    tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ensure notebook directory exists
     file: path={{ item.config.notebook_dir }} state=directory mode=0755 owner={{ item.user }} group={{ item.group }}
-    sudo: False
     with_items: ipython_notebook.notebooks
     when: ipython_notebook.notebooks is defined
     tags: ipython-notebook
 
   - name: ipython-notebook | main.yml >> ipython password set
-    command: python -c 'from IPython.lib import passwd; print passwd("{{ ipython_notebook.password }}")'
+    command: python -c 'from IPython.lib import passwd; print passwd("{{ ipython_notebook.default_notebook_password }}")'
     register: ipython_notebook_sha1_password
     tags: ipython-notebook
 

@@ -1,11 +1,14 @@
+#{{ ansible_managed }}
+
 c = get_config()
 
 c.FileNotebookManager.notebook_dir = u'{{ item.config.notebook_dir }}'
 
 c.IPKernelApp.pylab = 'inline'
 
-c.NotebookApp.certfile = u'{{ item.config.certfile_dir }}server.pem'
+c.NotebookApp.certfile = u'{{ item.config.certfile_dir }}/{{ item.user }}_notebook_server.pem'
 c.NotebookApp.ip = '{{ item.config.ip }}'
+c.NotebookApp.port = {{ item.config.port }}
 c.NotebookApp.open_browser = False
 
 {% if item.config.sha1_password %}
@@ -13,6 +16,5 @@ c.NotebookApp.password = u'{{ item.config.sha1_password }}'
 {% else %}
 c.NotebookApp.password = u'{{ ipython_notebook_sha1_password.stdout }}'
 {% endif %}
-c.NotebookApp.port = {{ item.config.port }}
 
 c.NotebookManager.notebook_dir = u'{{ item.config.notebook_dir }}'

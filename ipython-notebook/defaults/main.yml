@@ -1,23 +1,24 @@
 ipython_notebook:
+  package: ipython-notebook
   version: 0.13.1~rc3-0ubuntu1
   scientific_libraries:
     - { package: 'python-matplotlib', version: '1.1.1-1' }
     - { package: 'python-scipy', version: '0.10.1+dfsg1-4' }
     - { package: 'python-pandas', version: '0.8.0-2' }
     - { package: 'python-nose', version: '1.1.2-3' }
-  password: bar
+  default_notebook_password: bar
   notebooks:
-    -
-      user: vagrant
+    - user: vagrant
       group: vagrant
       config:
         ip: '*'
         port: 9999
-        profile: foo
+        profile: vagrant
         sha1_password:
+        certfile:
         certfile_subject: '/C=US/ST=HI/L=Honolulu/O=IT/CN={{ ansible_fqdn }}'
-        certfile_dir: '/home/vagrant/ssl/cert/'
-        notebook_dir: '/home/vagrant/notebooks/'
+        certfile_dir: '/home/vagrant/ssl/cert'
+        notebook_dir: '/home/vagrant/notebooks'
 
 env:
   proxies:
