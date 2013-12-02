@@ -43,6 +43,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ### Dragons
 
+  * [common](https://github.com/ryankanno/playbooks/tree/master/common)
   * [elasticsearch](https://github.com/ryankanno/playbooks/tree/master/elasticsearch)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
   * [logstash](https://github.com/ryankanno/playbooks/tree/master/logstash)
