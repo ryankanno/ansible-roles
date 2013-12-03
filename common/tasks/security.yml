@@ -1,12 +1,13 @@
 ---
   - name: common | security.yml >> chkrootkit installed
     apt: pkg=chkrootkit state=present
-
-  - name: common | security.yml >> rkhunter installed
-    apt: pkg=rkhunter state=present
+    environment: env.proxies
+    tags: common
 
   - name: common | security.yml >> tiger installed
     apt: pkg=tiger state=present
+    environment: env.proxies
+    tags: common
 
   - name: common | security.yml >> prevent ip spoof
     lineinfile: dest=/etc/host.conf regexp="^order" line="order bind,hosts" state=present

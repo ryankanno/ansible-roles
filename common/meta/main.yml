@@ -1,0 +1,11 @@
+---
+  dependencies:
+    - { role: apt }
+    - { role: virtualbox }
+    - { role: sslcerts }
+    - { role: timezone }
+    - { role: ntp }
+    - { role: hostname }
+    - { role: sshd }
+    - { role: iptables }
+    - { role: fail2ban }
