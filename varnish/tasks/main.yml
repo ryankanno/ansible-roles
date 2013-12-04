@@ -1,19 +1,26 @@
 ---
-  - name: varnish | main.yml >> varnis {{ varnish.version }} present
-    apt: pkg={{ item }}={{ varnish.version }} state=present
-    with_items:
-      - varnish
-    tags: varnish, install
+  - name: varnish | main.yml >> varnish present
+    apt: pkg={{ varnish.package }}={{ varnish.version }} state=present
+    environment: env.proxies
+    tags: varnish
 
   - name: varnish | main.yml >> create varnish group
     group: name={{ varnish.group }} state=present system=yes
+    when: varnish.group is defined and varnish.group
     tags: varnish
 
   - name: varnish | main.yml >> create varnish user
     user: name={{ varnish.user }} group={{ varnish.group }} createhome=no shell=/bin/false system=yes state=present
+    when: varnish.user is defined and varnish.user
     tags: varnish
 
-  - name: varnish | main.yml >> install varnish default.vcl
+  - name: varnish | main.yml >> default varnish conf present
+    template: src=varnish.j2 dest=/etc/default/varnish group=root owner=root mode=0644
+    notify:
+      - restart varnish
+    tags: varnish
+
+  - name: varnish | main.yml >> varnish default.vcl present
     template: src=default.vcl.j2 dest={{ varnish.config_dir }}/default.vcl group=root owner=root mode=0644
     notify:
       - restart varnish

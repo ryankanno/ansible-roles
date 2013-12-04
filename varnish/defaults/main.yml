@@ -1,5 +1,24 @@
 varnish:
+  package: varnish
   version: 3.0.2-2
   user: varnish
   group: varnish
   config_dir: /etc/varnish
+  config:
+    vcl_config_path: /etc/varnish/default.vcl
+    ip: 127.0.0.1
+    port: 6081
+    admin_ip: 127.0.0.1
+    admin_port: 6082
+    min_threads: 1
+    max_threads: 1000
+    thread_timeout: 120
+    storage_spec: file,/var/lib/varnish/$INSTANCE/varnish_storage.bin,1G
+    secret_path: /etc/varnish/secret
+    default_ttl: 120
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
