@@ -1,0 +1,20 @@
+---
+  - name: monit | main.yml >> monit present
+    apt: pkg={{ monit.package }}={{ monit.version }} state=present
+    environment: env.proxies
+    tags: monit
+
+  - name: monit | main.yml >> monit conf present
+    template: src={{ item.src }} dest={{ item.dest }} mode=0600 owner=root group=root
+    with_items:
+      - { src: 'monitrc.j2', dest: '/etc/monit/monitrc' }
+    notify:
+      - restart monit
+    tags: monit
+
+  - name: monit | main.yml >> additional monit conf present
+    template: src={{ item }} dest=/etc/monit/conf.d/{{ item }}.conf mode=0600 owner=root group=root
+    with_items: monit.additional_conf
+    notify:
+      - reload monit
+    tags: monit

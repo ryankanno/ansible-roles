@@ -1,0 +1,10 @@
+monit:
+  package: monit
+  version: 1:5.4-2
+  additional_conf: ['monit_www.conf.j2']
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
