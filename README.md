@@ -50,6 +50,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [monit](https://github.com/ryankanno/playbooks/tree/master/monit)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
+  * [sysctl](https://github.com/ryankanno/playbooks/tree/master/sysctl)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
   * [varnish](https://github.com/ryankanno/playbooks/tree/master/varnish)
 
@@ -59,9 +60,12 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * hadoop
   * openvpn
   * hadoop
+  * jenkins
   * mysql
   * postgres
   * kafka
+  * sonarqube
+  * sonarqube-runner
   * storm
 
 ## Tips
