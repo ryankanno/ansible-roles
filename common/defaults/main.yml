@@ -1,0 +1,23 @@
+common:
+  users:
+    to_remove:
+      - games
+      - irc
+      - list
+      - news
+      - proxy
+      - uucp
+  groups:
+    to_remove:
+      - games
+      - irc
+      - list
+      - news
+      - proxy
+      - uucp
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:

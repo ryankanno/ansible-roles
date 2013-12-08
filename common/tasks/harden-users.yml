@@ -1,0 +1,10 @@
+---
+  - name: common | harden-users.yml >> remove unnecessary users
+    user: name={{ item }} state=absent
+    with_items: common.users.to_remove
+    tags: common
+
+  - name: common | harden-users.yml >> remove unnecessary groups
+    user: name={{ item }} state=absent
+    with_items: common.groups.to_remove
+    tags: common

@@ -1,2 +1,3 @@
 ---
+  - include: harden-users.yml
   - include: security.yml
