@@ -1,0 +1,5 @@
+---
+  - name: lynis | main.yml >> latest lynis present
+    apt: pkg=lynis state=latest
+    environment: env.proxies
+    tags: lynis

@@ -47,6 +47,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [elasticsearch](https://github.com/ryankanno/playbooks/tree/master/elasticsearch)
   * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
   * [logstash](https://github.com/ryankanno/playbooks/tree/master/logstash)
+  * [lynis](https://github.com/ryankanno/playbooks/tree/master/lynis)
   * [monit](https://github.com/ryankanno/playbooks/tree/master/monit)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
