@@ -1,22 +1,18 @@
-# Playbooks
+# Ansible-Roles
 
 ## Here be dragons
 
-My [Ansible](https://github.com/ansible/ansible) playbooks.
-
-As a warning, these playbooks will be in somewhat a state of flux for the next
-few weeks as I migrate infrastructure codes to Ansible.  These are generally
-the technologies I tend to install for new machines.
+My tiny collection of [Ansible](https://github.com/ansible/ansible) roles.
 
 Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/vagrant-ansible) to play around with them!
 
 ## Updates
 
-  * Added env.proxies as an environment variable for all tested playbooks
-  * Updated README in each playbook describing all the available variables
+  * Added env.proxies as an environment variable for all tested roles
+  * Updated README in each role describing all the available variables
   * Tried to make each task idempotent (If you see anything that stinks, I take pull requests!)
 
-## Playbooks
+## Roles
 
 ### Tested
 
@@ -75,4 +71,5 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
     the apt role. Most of the default package variables are up to date so they
     require an updated apt cache.  I generally don't include update_cache in individual 
     apt module calls - just to keep things simple. I also removed the apt meta 
-    dependency to make things more explcit and being able to just call it once for the entire playbook.
+    dependency to make things more explcit and being able to just call it once 
+    for the entire playbook.
