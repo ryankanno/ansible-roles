@@ -1,8 +1,8 @@
 # logrotate
 
-This playbook helps configure logrotate.
+This role helps configure logrotate.
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -13,4 +13,4 @@ This playbook helps configure logrotate.
 |`logrotate.config.should_compress`|compress logs?|true|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/logrotate/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/logrotate/defaults/main.yml)

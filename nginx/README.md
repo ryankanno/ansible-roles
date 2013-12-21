@@ -1,3 +1,3 @@
 # nginx
 
-This playbook installs [nginx](http://nginx.org)
+This role installs [nginx](http://nginx.org).

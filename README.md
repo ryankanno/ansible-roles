@@ -16,41 +16,41 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ### Tested
 
-  * [apt](https://github.com/ryankanno/playbooks/tree/master/apt)
-  * [fail2ban](https://github.com/ryankanno/playbooks/tree/master/fail2ban)
-  * [hostname](https://github.com/ryankanno/playbooks/tree/master/hostname)
-  * [iptables](https://github.com/ryankanno/playbooks/tree/master/iptables)
-  * [ipython](https://github.com/ryankanno/playbooks/tree/master/ipython)
-  * [ipython-notebook](https://github.com/ryankanno/playbooks/tree/master/ipython-notebook)
-  * [javadev](https://github.com/ryankanno/playbooks/tree/master/javadev)
-  * [javaenv](https://github.com/ryankanno/playbooks/tree/master/javaenv)
-  * [logrotate](https://github.com/ryankanno/playbooks/tree/master/logrotate)
-  * [memcached](https://github.com/ryankanno/playbooks/tree/master/memcached)
-  * [motd](https://github.com/ryankanno/playbooks/tree/master/motd)
-  * [ntp](https://github.com/ryankanno/playbooks/tree/master/ntp)
-  * [pythondev](https://github.com/ryankanno/playbooks/tree/master/pythondev)
-  * [redis](https://github.com/ryankanno/playbooks/tree/master/redis)
-  * [rubydev](https://github.com/ryankanno/playbooks/tree/master/rubydev)
-  * [rvm](https://github.com/ryankanno/playbooks/tree/master/rvm)
-  * [sshd](https://github.com/ryankanno/playbooks/tree/master/sshd)
-  * [sslcerts](https://github.com/ryankanno/playbooks/tree/master/sslcerts)
-  * [timezone](https://github.com/ryankanno/playbooks/tree/master/timezone)
-  * [virtualbox](https://github.com/ryankanno/playbooks/tree/master/virtualbox)
+  * [apt](https://github.com/ryankanno/ansible-roles/tree/master/apt)
+  * [fail2ban](https://github.com/ryankanno/ansible-roles/tree/master/fail2ban)
+  * [hostname](https://github.com/ryankanno/ansible-roles/tree/master/hostname)
+  * [iptables](https://github.com/ryankanno/ansible-roles/tree/master/iptables)
+  * [ipython](https://github.com/ryankanno/ansible-roles/tree/master/ipython)
+  * [ipython-notebook](https://github.com/ryankanno/ansible-roles/tree/master/ipython-notebook)
+  * [javadev](https://github.com/ryankanno/ansible-roles/tree/master/javadev)
+  * [javaenv](https://github.com/ryankanno/ansible-roles/tree/master/javaenv)
+  * [logrotate](https://github.com/ryankanno/ansible-roles/tree/master/logrotate)
+  * [memcached](https://github.com/ryankanno/ansible-roles/tree/master/memcached)
+  * [motd](https://github.com/ryankanno/ansible-roles/tree/master/motd)
+  * [ntp](https://github.com/ryankanno/ansible-roles/tree/master/ntp)
+  * [pythondev](https://github.com/ryankanno/ansible-roles/tree/master/pythondev)
+  * [redis](https://github.com/ryankanno/ansible-roles/tree/master/redis)
+  * [rubydev](https://github.com/ryankanno/ansible-roles/tree/master/rubydev)
+  * [rvm](https://github.com/ryankanno/ansible-roles/tree/master/rvm)
+  * [sshd](https://github.com/ryankanno/ansible-roles/tree/master/sshd)
+  * [sslcerts](https://github.com/ryankanno/ansible-roles/tree/master/sslcerts)
+  * [timezone](https://github.com/ryankanno/ansible-roles/tree/master/timezone)
+  * [virtualbox](https://github.com/ryankanno/ansible-roles/tree/master/virtualbox)
 
 ### Dragons
 
-  * [common](https://github.com/ryankanno/playbooks/tree/master/common)
-  * [elasticsearch](https://github.com/ryankanno/playbooks/tree/master/elasticsearch)
-  * [haproxy](https://github.com/ryankanno/playbooks/tree/master/haproxy)
-  * [logstash](https://github.com/ryankanno/playbooks/tree/master/logstash)
-  * [lynis](https://github.com/ryankanno/playbooks/tree/master/lynis)
-  * [monit](https://github.com/ryankanno/playbooks/tree/master/monit)
-  * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
-  * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
-  * [sudo](https://github.com/ryankanno/playbooks/tree/master/sudo)
-  * [sysctl](https://github.com/ryankanno/playbooks/tree/master/sysctl)
-  * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
-  * [varnish](https://github.com/ryankanno/playbooks/tree/master/varnish)
+  * [common](https://github.com/ryankanno/ansible-roles/tree/master/common)
+  * [elasticsearch](https://github.com/ryankanno/ansible-roles/tree/master/elasticsearch)
+  * [haproxy](https://github.com/ryankanno/ansible-roles/tree/master/haproxy)
+  * [logstash](https://github.com/ryankanno/ansible-roles/tree/master/logstash)
+  * [lynis](https://github.com/ryankanno/ansible-roles/tree/master/lynis)
+  * [monit](https://github.com/ryankanno/ansible-roles/tree/master/monit)
+  * [nginx](https://github.com/ryankanno/ansible-roles/tree/master/nginx)
+  * [rsyslog](https://github.com/ryankanno/ansible-roles/tree/master/rsyslog)
+  * [sudo](https://github.com/ryankanno/ansible-roles/tree/master/sudo)
+  * [sysctl](https://github.com/ryankanno/ansible-roles/tree/master/sysctl)
+  * [uwsgi](https://github.com/ryankanno/ansible-roles/tree/master/uwsgi)
+  * [varnish](https://github.com/ryankanno/ansible-roles/tree/master/varnish)
 
 ### TODO (Needs to be migrated)
 
@@ -72,5 +72,4 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
     the apt role. Most of the default package variables are up to date so they
     require an updated apt cache.  I generally don't include update_cache in individual 
     apt module calls - just to keep things simple. I also removed the apt meta 
-    dependency to make things more explcit and being able to just call it once 
-    for the entire playbook.
+    dependency to make things more explicit.

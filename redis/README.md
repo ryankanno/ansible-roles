@@ -1,8 +1,8 @@
 # redis
 
-This playbook installs [redis](http://redis.io).
+This role installs [redis](http://redis.io).
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -18,4 +18,4 @@ This playbook installs [redis](http://redis.io).
 |`redis.config.working_dir`|working directory|/var/db/redis|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/redis/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/redis/defaults/main.yml)

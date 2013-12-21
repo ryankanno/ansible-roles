@@ -1,10 +1,10 @@
 # fail2ban
 
-This playbook helps configure fail2ban.
+This role helps configure fail2ban.
 
 By default, only enables ssh/ssh-ddos
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -18,4 +18,4 @@ By default, only enables ssh/ssh-ddos
 |`fail2ban.config.destemail`|email|root@localhost|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/fail2ban/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/fail2ban/defaults/main.yml)

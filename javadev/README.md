@@ -1,8 +1,8 @@
 # javadev
 
-This playbook installs packages / libraries associated with java development.
+This role installs packages / libraries associated with java development.
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -14,4 +14,4 @@ This playbook installs packages / libraries associated with java development.
 |`java.libraries.versioned`|versioned java packages to install||
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/javadev/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/javadev/defaults/main.yml)

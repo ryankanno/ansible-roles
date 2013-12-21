@@ -1,8 +1,8 @@
 # apt
 
-This playbook installs and maintains apt.
+This role installs and maintains apt.
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -10,4 +10,4 @@ This playbook installs and maintains apt.
 |`apt.should_upgrade`|true if you want to upgrade apt packages|true|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/apt/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/apt/defaults/main.yml)

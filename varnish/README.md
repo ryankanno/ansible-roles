@@ -1,8 +1,8 @@
 # varnish
 
-This playbook installs [varnish](http://varnish-cache.org).
+This role installs [varnish](http://varnish-cache.org).
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -10,4 +10,4 @@ This playbook installs [varnish](http://varnish-cache.org).
 |`varnish.version`|varnish package version|3.0.2-2|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/varnish/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/varnish/defaults/main.yml)

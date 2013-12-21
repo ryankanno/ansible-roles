@@ -1,6 +1,6 @@
 # ipython-notebook
 
-This playbook helps configure a secure [ipython-notebook](http://ipython.org/notebook.html).
+This role helps configure a secure [ipython-notebook](http://ipython.org/notebook.html).
 
   * Creates a cert for https
   * Creates a password for the notebook
@@ -9,7 +9,7 @@ Log into the box and start the notebook with the following:
 
 `ipython notebook --profile=vagrant`
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -35,8 +35,8 @@ Log into the box and start the notebook with the following:
 |`config.notebook_dir`|directory to store the notebook files|/home/vagrant/notebooks|
 
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/ipython-notebook/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/ipython-notebook/defaults/main.yml)
 
 ## role dependencies
 
-  * [ipython](https://github.com/ryankanno/playbooks/blob/master/ipython)
+  * [ipython](https://github.com/ryankanno/ansible-roles/blob/master/ipython)

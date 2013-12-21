@@ -1,8 +1,8 @@
 # sshd
 
-This playbook helps configure sshd.
+This role helps configure sshd.
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -14,4 +14,4 @@ This playbook helps configure sshd.
 |`sshd.config.enable_pub_key_auth`|enable public key auth|yes|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/sshd/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/sshd/defaults/main.yml)

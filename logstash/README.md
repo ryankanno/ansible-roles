@@ -1,6 +1,6 @@
 # logstash
 
-This playbook helps configure logstash
+This role helps configure logstash
 
 ## todo
 

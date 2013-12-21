@@ -1,3 +1,3 @@
 # uwsgi
 
-This playbook installs [uwsgi](https://projects.unbit.it/uwsgi/)
+This role installs [uwsgi](https://projects.unbit.it/uwsgi/).

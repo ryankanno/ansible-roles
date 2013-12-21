@@ -1,8 +1,8 @@
 # memcached
 
-This playbook installs [memcached](http://memcached.org).
+This role installs [memcached](http://memcached.org).
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -17,4 +17,4 @@ This playbook installs [memcached](http://memcached.org).
 |`memcached.config.num_connections`|max simultaneous connections|1024|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/memcached/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/memcached/defaults/main.yml)

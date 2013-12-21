@@ -1,3 +1,3 @@
 # elasticsearch
 
-This playbook helps configure elasticsearch
+This role helps configure elasticsearch

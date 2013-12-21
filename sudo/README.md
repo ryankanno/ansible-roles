@@ -1,10 +1,10 @@
 # sudo
 
-This playbook helps configure sudo access for a user.
+This role helps configure sudo access for a user.
 
 *Note*: This gives passwordless, root privileges to the users defined.
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -18,4 +18,4 @@ This playbook helps configure sudo access for a user.
 |`user.should_generate_ssh_key`|should user ssh keys be generated|1 or 0|
 
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/sudo/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/sudo/defaults/main.yml)

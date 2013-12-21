@@ -1,8 +1,8 @@
 # virtualbox
 
-This playbook helps configure the latest guest additions for virtualbox.
+This role helps configure the latest guest additions for virtualbox.
 
-## playbook variables
+## role variables
 
 |name|description|default|
 |----|-----------|-------|
@@ -13,4 +13,4 @@ This playbook helps configure the latest guest additions for virtualbox.
 |`virtualbox.guest_additions.iso_mountdir`|virtualbox guest additions mount dir|/mnt|
 |`env.proxies`|dictionary of proxy related environment variables (http_proxy, https_proxy, ftp_proxy)||
 
-See [defaults/main.yml](https://github.com/ryankanno/playbooks/blob/master/virtualbox/defaults/main.yml)
+See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/virtualbox/defaults/main.yml)

@@ -1,3 +1,3 @@
 # lynis
 
-This playbook helps configure lynis.
+This role helps configure lynis.

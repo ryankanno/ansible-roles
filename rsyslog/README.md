@@ -1,3 +1,3 @@
 # rsyslog
 
-This playbook helps configure rsyslog
+This role helps configure rsyslog.

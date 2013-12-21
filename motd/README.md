@@ -1,7 +1,7 @@
 # motd
 
-This playbook configures a custom nyan cat motd.
+This role configures a custom nyan cat motd.
 
-## playbook variables
+## role variables
 
   * None

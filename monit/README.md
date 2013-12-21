@@ -1,3 +1,3 @@
 # monit
 
-This playbook helps configure monit
+This role helps configure monit.
