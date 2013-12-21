@@ -1,0 +1,14 @@
+---
+  - name: sudo | main.yml >> ensure users present
+    user: state=present name={{ item.name }} system={{ item.is_system }} createhome={{ item.should_create_home }} generate_ssh_key={{ item.should_generate_ssh_keys }}
+    with_items: sudo.users
+    when: sudo.users is defined and sudo.users
+    sudo: True
+    tags: sudo
+
+  - name: sudo | main.yml >> ensure users have sudo
+    template: src=sudo_template.j2 dest=/etc/sudoers.d/{{ item.name }} owner=root group=root mode=0440
+    with_items: sudo.users
+    when: sudo.users is defined and sudo.users
+    sudo: True
+    tags: sudo

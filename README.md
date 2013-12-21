@@ -47,6 +47,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [monit](https://github.com/ryankanno/playbooks/tree/master/monit)
   * [nginx](https://github.com/ryankanno/playbooks/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/playbooks/tree/master/rsyslog)
+  * [sudo](https://github.com/ryankanno/playbooks/tree/master/sudo)
   * [sysctl](https://github.com/ryankanno/playbooks/tree/master/sysctl)
   * [uwsgi](https://github.com/ryankanno/playbooks/tree/master/uwsgi)
   * [varnish](https://github.com/ryankanno/playbooks/tree/master/varnish)
