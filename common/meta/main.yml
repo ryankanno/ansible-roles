@@ -1,7 +1,6 @@
 ---
   dependencies:
     - { role: apt }
-    - { role: virtualbox }
     - { role: sslcerts }
     - { role: timezone }
     - { role: ntp }
