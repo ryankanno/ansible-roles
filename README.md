@@ -37,6 +37,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [rvm](https://github.com/ryankanno/ansible-roles/tree/master/rvm)
   * [sshd](https://github.com/ryankanno/ansible-roles/tree/master/sshd)
   * [sslcerts](https://github.com/ryankanno/ansible-roles/tree/master/sslcerts)
+  * [sudo](https://github.com/ryankanno/ansible-roles/tree/master/sudo)
   * [timezone](https://github.com/ryankanno/ansible-roles/tree/master/timezone)
   * [virtualbox](https://github.com/ryankanno/ansible-roles/tree/master/virtualbox)
 
@@ -47,7 +48,6 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [monit](https://github.com/ryankanno/ansible-roles/tree/master/monit)
   * [nginx](https://github.com/ryankanno/ansible-roles/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/ansible-roles/tree/master/rsyslog)
-  * [sudo](https://github.com/ryankanno/ansible-roles/tree/master/sudo)
   * [sysctl](https://github.com/ryankanno/ansible-roles/tree/master/sysctl)
   * [uwsgi](https://github.com/ryankanno/ansible-roles/tree/master/uwsgi)
   * [varnish](https://github.com/ryankanno/ansible-roles/tree/master/varnish)

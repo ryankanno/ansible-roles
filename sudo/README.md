@@ -2,7 +2,9 @@
 
 This role helps configure sudo access for a user.
 
-*Note*: This gives passwordless, root privileges to the users defined.
+## details
+
+  * This gives passwordless, root privileges to the users defined.
 
 ## role variables
 
