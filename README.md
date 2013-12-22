@@ -17,6 +17,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 ### Tested
 
   * [apt](https://github.com/ryankanno/ansible-roles/tree/master/apt)
+  * [common](https://github.com/ryankanno/ansible-roles/tree/master/common)
   * [fail2ban](https://github.com/ryankanno/ansible-roles/tree/master/fail2ban)
   * [haproxy](https://github.com/ryankanno/ansible-roles/tree/master/haproxy)
   * [hostname](https://github.com/ryankanno/ansible-roles/tree/master/hostname)
@@ -41,7 +42,6 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ### Dragons
 
-  * [common](https://github.com/ryankanno/ansible-roles/tree/master/common)
   * [elasticsearch](https://github.com/ryankanno/ansible-roles/tree/master/elasticsearch)
   * [logstash](https://github.com/ryankanno/ansible-roles/tree/master/logstash)
   * [monit](https://github.com/ryankanno/ansible-roles/tree/master/monit)
