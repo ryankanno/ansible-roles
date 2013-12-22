@@ -8,7 +8,7 @@ This role helps configure sshd.
 |----|-----------|-------|
 |`sshd.package`|sshd package|openssh-server|
 |`sshd.version`|sshd package version|1:6.0p1-3ubuntu1|
-|`sshd.config.port`|sshd port|2212|
+|`sshd.config.port`|sshd port|22|
 |`sshd.config.enable_pam_auth`|enable pam|no|
 |`sshd.config.enable_password_auth`|enable password auth|no|
 |`sshd.config.enable_pub_key_auth`|enable public key auth|yes|
