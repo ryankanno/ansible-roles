@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+[mysqld]
+
+{% if mysql.config.mysqld.bind_address is defined and mysql.config.mysqld.bind_address %}
+bind-address = {{ mysql.config.mysqld.bind_address }}
+{% endif %}
+
+{% if mysql.config.mysqld.port is defined and mysql.config.mysqld.port %}
+port = {{ mysql.config.mysqld.port }}
+{% endif %}
+
+[client]
+
+{% if mysql.config.client.port is defined and mysql.config.client.port %}
+port = {{ mysql.config.client.port }}
+{% endif %}

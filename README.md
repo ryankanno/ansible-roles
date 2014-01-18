@@ -46,6 +46,7 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * [elasticsearch](https://github.com/ryankanno/ansible-roles/tree/master/elasticsearch)
   * [logstash](https://github.com/ryankanno/ansible-roles/tree/master/logstash)
   * [monit](https://github.com/ryankanno/ansible-roles/tree/master/monit)
+  * [mysql](https://github.com/ryankanno/ansible-roles/tree/master/mysql)
   * [nginx](https://github.com/ryankanno/ansible-roles/tree/master/nginx)
   * [rsyslog](https://github.com/ryankanno/ansible-roles/tree/master/rsyslog)
   * [sysctl](https://github.com/ryankanno/ansible-roles/tree/master/sysctl)
@@ -59,7 +60,6 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
   * openvpn
   * hadoop
   * jenkins
-  * mysql
   * postgres
   * kafka
   * sonarqube

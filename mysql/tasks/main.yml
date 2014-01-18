@@ -1,0 +1,29 @@
+---
+  - name: mysql | main.yml >> mysql present
+    apt: pkg={{ mysql.package }}={{ mysql.version }} state=present
+    environment: env.proxies
+    tags: mysql
+
+  - name: mysql | main.yml >> .my.cnf conf present (contains root password credentials)
+    template: src=my.cnf.j2 dest=/etc/mysql/my.cnf mode=0600 owner=root group=root
+    tags: mysql
+
+  - name: mysql | main.yml >> update password for all root accounts
+    mysql_user: name=root host=$item password={{ mysql.root_password }}
+    with_items:
+      - $ansible_hostname
+      - 127.0.0.1
+      - ::1
+      - localhost
+    tags: mysql
+
+  - name: mysql | main.yml >> ensure anonymous users are not in the database
+    mysql_user: name='' host=$item state=absent login_user=root login_password={{ mysql.root_password }}
+    with_items:
+      - localhost
+      - $inventory_hostname
+    tags: mysql
+
+  - name: mysql | main.yml >> remove test database
+    mysql_db: name=test state=absent login_user=root login_password={{ mysql.root_password }}
+    tags: mysql

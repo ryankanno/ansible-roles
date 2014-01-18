@@ -1,0 +1,16 @@
+mysql:
+  package: mysql-server
+  version: 5.5.34-0ubuntu0.12.10.1
+  root_password: 'sharkbait-ooh-ha-ha'
+  config:
+    mysqld:
+      bind_address: 127.0.0.1
+      port: 3306
+    client:
+      port: 3306
+
+env:
+  proxies:
+    http_proxy:
+    https_proxy:
+    ftp_proxy:
