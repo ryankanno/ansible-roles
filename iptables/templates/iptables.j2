@@ -13,9 +13,9 @@
 # allow outbound
 -A OUTPUT -j ACCEPT
 
-# allow iptables.open_ports
-{% if iptables and iptables.open_ports %}
-{% for open_port in iptables.open_ports %}
+# allow iptables.config.open_ports
+{% if iptables and iptables.config and iptables.config.open_ports %}
+{% for open_port in iptables.config.open_ports %}
 -A INPUT -p tcp -m state --state NEW --dport {{ open_port }} -j ACCEPT
 {% endfor %}
 {% endif %}

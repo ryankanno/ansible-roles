@@ -1,0 +1,14 @@
+---
+  - name: iptables | iptables_os_ubuntu.yml >> iptables present
+    apt: pkg=iptables state=present
+    environment: env
+
+  - name: iptables | iptables_os_ubuntu.yml >> iptables-persistent present
+    apt: pkg=iptables-persistent state=present
+    environment: env
+
+  - name: iptables | iptables_os_ubuntu.yml >> iptables conf present
+    template: src={{ iptables.config.src }} dest=/etc/iptables/rules.v4 owner=root group=root mode=0600 backup=yes
+
+  - name: iptables | iptables_os_ubuntu.yml >> start iptables-persistent
+    service: name=iptables-persistent enabled=yes state=restarted
