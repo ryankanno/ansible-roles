@@ -1,16 +1,16 @@
 fail2ban:
   package: fail2ban
-  version: 0.8.7.1-1
+  version: 0.8.11-1
   config:
+    src: 'jail.local.j2'
     ignoreip: 127.0.0.1/8
     bantime: 600
     banaction: iptables-multiport
     backend: auto
     action: '%(action_mwl)s'
-    destemail: ryankanno@gmail.com
+    destemail: root@localhost
 
 env:
-  proxies:
-    http_proxy:
-    https_proxy:
-    ftp_proxy:
+  http_proxy:
+  https_proxy:
+  ftp_proxy:

@@ -1,0 +1,11 @@
+---
+  - name: fail2ban | fail2ban_os_ubuntu.yml >> fail2ban present
+    apt: pkg={{ fail2ban.package }}={{ fail2ban.version }} state=present
+    environment: env
+
+  - name: fail2ban | fail2ban_os_ubuntu.yml >> fail2ban conf present
+    template: src={{ item.src }} dest={{ item.dest }} mode=0644 owner=root group=root
+    with_items:
+      - { src: "{{ fail2ban.config.src }}", dest: '/etc/fail2ban/jail.local' }
+    notify:
+      - restart fail2ban
