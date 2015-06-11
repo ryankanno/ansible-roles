@@ -1,11 +1,3 @@
 ---
-  - name: sshd | main.yml >> sshd present
-    apt: pkg={{ sshd.package }}={{ sshd.version }} state=present
-    environment: env.proxies
-    tags: sshd
-
-  - name: sshd | main.yml >> sshd conf present
-    template: src=sshd_config.j2 dest=/etc/ssh/sshd_config mode=0640 owner=root group=root
-    notify:
-      - restart sshd
-    tags: sshd
+  - include: sshd_os_ubuntu.yml tags=sshd
+    when: ansible_distribution == 'Ubuntu'

@@ -1,14 +1,14 @@
 sshd:
   package: openssh-server
-  version: 1:6.0p1-3ubuntu1
+  version: 1:6.6p1-2ubuntu2
   config:
+    src: 'sshd_config.j2'
     port: 22
     enable_pam_auth: 'no'
     enable_password_auth: 'no'
     enable_pub_key_auth: 'yes'
 
 env:
-  proxies:
-    http_proxy:
-    https_proxy:
-    ftp_proxy:
+  http_proxy:
+  https_proxy:
+  ftp_proxy:
