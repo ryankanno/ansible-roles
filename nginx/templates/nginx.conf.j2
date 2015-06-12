@@ -1,26 +1,46 @@
-user {{ user }};
-worker_processes {{ worker_processes }};
-pid {{ pid }};
+# {{ ansible_managed }}
+
+user {{ nginx.config.vars.user }};
+worker_processes {{ ansible_processor_count }};
+pid {{ nginx.config.vars.pid }};
 
 events {
-    worker_connections {{ worker_connections }};
-    multi_accept on;
+    worker_connections {{ nginx.config.vars.max_clients }};
+    multi_accept       on;
+    use                epoll;
 }
 
 http {
+    server_tokens off;
+
+    add_header X-Frame-Options SAMEORIGIN;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection "1; mode=block";
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ssl.google-analytics.com https://assets.zendesk.com https://connect.facebook.net; img-src 'self' https://ssl.google-analytics.com https://s-static.ak.facebook.com https://assets.zendesk.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.zendesk.com; font-src 'self' https://themes.googleusercontent.com; frame-src https://assets.zendesk.com https://www.facebook.com https://s-static.ak.facebook.com https://tautt.zendesk.com; object-src 'none'";
+
+    sendfile           on;
+    tcp_nopush         on;
+    tcp_nodelay        on;
+    keepalive_timeout  15;
+
     include /etc/nginx/mime.types;
-    default_type  application/octet-stream;
+    default_type application/octet-stream;
 
-    sendfile on;
-    tcp_nopush on;
+    access_log {{ nginx.config.vars.access_log }};
+    error_log  {{ nginx.config.vars.error_log }};
 
-    keepalive_timeout 65;
-    tcp_nodelay on;
+    gzip             on;
+    gzip_comp_level  2;
+    gzip_disable     "MSIE [1-6]\.";
+    gzip_min_length  1000;
+    gzip_proxied     expired no-cache no-store private auth;
+    gzip_types       text/plain text/css text/xml text/javascript application/x-javascript application/xml;
+    gzip_vary        on;
 
-    types_hash_max_size 2048;
-
-    include nginx-conf/gzip.conf;
+    open_file_cache          max=2000 inactive=20s;
+    open_file_cache_valid    60s;
+    open_file_cache_min_uses 5;
+    open_file_cache_errors   off;
 
     include /etc/nginx/conf.d/*.conf;
-    include /etc/nginx/sites-enabled/*;
 }

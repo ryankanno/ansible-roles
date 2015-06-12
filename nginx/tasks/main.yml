@@ -1,21 +1,3 @@
 ---
-  - name: 'nginx: version {{ version }} present'
-    apt: pkg=nginx={{ version }} state=present
-    tags: nginx, install
-
-  - name: 'nginx: setup conf dirs'
-    file: path=/etc/nginx/nginx-conf state=directory 
-    tags: nginx
-
-  - name: 'nginx: conf present'
-    template: src={{ item.src }} dest={{ item.dest }} mode=0640 owner=root group=root
-    with_items:
-    - { src: 'nginx.conf.j2', dest: '/etc/nginx/nginx.conf' } 
-    - { src: 'nginx-conf/gzip.conf.j2', dest: '/etc/nginx/nginx-conf/gzip.conf' }
-    notify: 'nginx: restart'
-    tags: nginx
-
-  - name: 'nginx: delete default vhost'
-    file: path=/etc/nginx/sites-enabled/default state=absent
-    notify: 'nginx: restart'
-    tags: nginx
+  - include: nginx_os_ubuntu.yml tags=nginx
+    when: ansible_distribution == 'Ubuntu'

@@ -1,0 +1,16 @@
+nginx:
+  package: nginx
+  version: 1.8.0-1~trusty
+  config:
+    src: 'nginx.conf.j2'
+    vars:
+      user: 'www-data'
+      pid: '/var/run/nginx.pid'
+      max_clients: 8096
+      access_log: /var/log/nginx/access.log
+      error_log: /var/log/nginx/error.log
+
+env:
+  http_proxy:
+  https_proxy:
+  ftp_proxy:

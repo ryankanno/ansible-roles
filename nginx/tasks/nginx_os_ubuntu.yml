@@ -1,0 +1,49 @@
+---
+  - name: nginx | main.yml | add nginx apt signing key
+    apt_key: url='http://nginx.org/keys/nginx_signing.key'
+
+  - name: nginx | main.yml | add official nginx apt repository
+    apt_repository: repo="deb http://nginx.org/packages/{{ansible_distribution|lower}} {{ansible_distribution_release}} nginx"
+
+  - name: nginx | main.yml | install nginx
+    apt: name={{ nginx.package }}={{ nginx.version }} state=present update_cache=yes cache_valid_time=3600
+    environment: env
+
+  - name: nginx | main.yml | remove default site
+    file: path=/etc/nginx/sites-enabled/default state=absent
+    sudo: yes
+    notify:
+      - reload nginx
+
+  - name: nginx | main.yml | remove default configuration(s)
+    file: path=/etc/nginx/conf.d/{{ item }} state=absent
+    sudo: yes
+    with_items:
+      - default.conf
+      - example_ssl.conf
+    notify:
+      - reload nginx
+
+  - name: nginx | main.yml | ensure nginx configuration
+    template: src={{ nginx.config.src }} dest=/etc/nginx/nginx.conf group=root owner=root
+    notify:
+      - restart nginx
+
+  - name: nginx | main.yml | ensure nginx ssl directory exists
+    file: path=/etc/nginx/ssl state=directory group=root owner=root
+
+  - name: nginx | main.yml | generate ssl forward secrecy
+    command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048 creates=/etc/nginx/ssl/dhparam.pem
+
+  - name: nginx | main.yml | ensure ssl forward secrecy key
+    file: path=/etc/nginx/ssl/dhparam.pem owner=root group=root mode=0600
+
+  - name: nginx | main.yml | copy sites over to conf.d
+    template: src={{ item.src_path }} dest=/etc/nginx/conf.d/{{ item.target_name }} group=root owner=root
+    with_items: nginx.sites_conf
+    when: nginx.sites_conf is defined and not((nginx.sites_conf is none) or (nginx.sites_conf|trim == ''))
+    notify:
+      - reload nginx
+
+  - name: nginx | main.yml | ensure nginx service is running
+    service: name=nginx state=started
