@@ -3,30 +3,30 @@
 #
 [DEFAULT]
 
-{% if fail2ban.config.ignoreip is defined and fail2ban.config.ignoreip %}
-ignoreip  = {{ fail2ban.config.ignoreip }}
+{% if fail2ban.conf.vars.ignoreip is defined and fail2ban.conf.vars.ignoreip %}
+ignoreip  = {{ fail2ban.conf.vars.ignoreip }}
 {% endif %}
 
-{% if fail2ban.config.bantime is defined and fail2ban.config.bantime %}
-bantime   = {{ fail2ban.config.bantime }}
+{% if fail2ban.conf.vars.bantime is defined and fail2ban.conf.vars.bantime %}
+bantime   = {{ fail2ban.conf.vars.bantime }}
 {% endif %}
 
-{% if fail2ban.config.destemail is defined and fail2ban.config.destemail %}
-destemail = {{ fail2ban.config.destemail }}
+{% if fail2ban.conf.vars.destemail is defined and fail2ban.conf.vars.destemail %}
+destemail = {{ fail2ban.conf.vars.destemail }}
 {% endif %}
 
-{% if fail2ban.config.backend is defined and fail2ban.config.backend %}
-backend   = {{ fail2ban.config.backend }}
+{% if fail2ban.conf.vars.backend is defined and fail2ban.conf.vars.backend %}
+backend   = {{ fail2ban.conf.vars.backend }}
 {% endif %}
 
-{% if fail2ban.config.banaction is defined and fail2ban.config.banaction %}
+{% if fail2ban.conf.vars.banaction is defined and fail2ban.conf.vars.banaction %}
 # Default banning action
-banaction = {{ fail2ban.config.banaction }}
+banaction = {{ fail2ban.conf.vars.banaction }}
 {% endif %}
 
-{% if fail2ban.config.action is defined and fail2ban.config.action %}
+{% if fail2ban.conf.vars.action is defined and fail2ban.conf.vars.action %}
 # Default action (e.g. action_ for ban only, action_mw for ban + email, action_mwl for ban + email w relevant log entries)
-action = {{ fail2ban.config.action }}
+action = {{ fail2ban.conf.vars.action }}
 {% endif %}
 
 [ssh]
