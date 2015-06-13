@@ -1,27 +1,27 @@
 ---
-  - name: nginx | nginx_os_ubuntu.yml | add nginx apt signing key
+  - name: nginx | nginx_os_debian7.yml | add nginx apt signing key
     apt_key: url='http://nginx.org/keys/nginx_signing.key'
 
-  - name: nginx | nginx_os_ubuntu.yml | add official nginx apt repository
+  - name: nginx | nginx_os_debian7.yml | add official nginx apt repository
     apt_repository: repo="deb http://nginx.org/packages/{{ansible_distribution|lower}} {{ansible_distribution_release}} nginx"
 
-  - name: nginx | nginx_os_ubuntu.yml | install nginx
+  - name: nginx | nginx_os_debian7.yml | install nginx
     apt: name={{ nginx.package }}={{ nginx.version }} state=present update_cache=yes cache_valid_time=3600
     environment: env
 
-  - name: nginx | nginx_os_ubuntu.yml | ensure sites-available exists
+  - name: nginx | nginx_os_debian7.yml | ensure sites-available exists
     file: path=/etc/nginx/sites-available state=directory group=root owner=root
 
-  - name: nginx | nginx_os_ubuntu.yml | ensure sites-enabled exists
+  - name: nginx | nginx_os_debian7.yml | ensure sites-enabled exists
     file: path=/etc/nginx/sites-enabled state=directory group=root owner=root
 
-  - name: nginx | nginx_os_ubuntu.yml | remove conf.d
+  - name: nginx | nginx_os_debian7.yml | remove conf.d
     file: path=/etc/nginx/conf.d state=absent
     sudo: yes
     notify:
       - reload nginx
 
-  - name: nginx | nginx_os_ubuntu.yml | remove default site
+  - name: nginx | nginx_os_debian7.yml | remove default site
     file: path={{ item }} state=absent
     sudo: yes
     with_items:
@@ -30,31 +30,31 @@
     notify:
       - reload nginx
 
-  - name: nginx | nginx_os_ubuntu.yml | ensure nginx configuration
+  - name: nginx | nginx_os_debian7.yml | ensure nginx configuration
     template: src={{ nginx.config.src }} dest=/etc/nginx/nginx.conf group=root owner=root
     notify:
       - restart nginx
 
-  - name: nginx | nginx_os_ubuntu.yml | ensure nginx ssl directory exists
+  - name: nginx | nginx_os_debian7.yml | ensure nginx ssl directory exists
     file: path=/etc/nginx/ssl state=directory group=root owner=root
 
-  - name: nginx | nginx_os_ubuntu.yml | generate ssl forward secrecy
+  - name: nginx | nginx_os_debian7.yml | generate ssl forward secrecy
     command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048 creates=/etc/nginx/ssl/dhparam.pem
 
-  - name: nginx | nginx_os_ubuntu.yml | ensure ssl forward secrecy key
+  - name: nginx | nginx_os_debian7.yml | ensure ssl forward secrecy key
     file: path=/etc/nginx/ssl/dhparam.pem owner=root group=root mode=0600
 
-  - name: nginx | nginx_os_ubuntu.yml | copy vhosts to sites-available
+  - name: nginx | nginx_os_debian7.yml | copy vhosts to sites-available
     template: src={{ item.path }} dest=/etc/nginx/sites-available/{{ item.name }}
     with_items: nginx.vhosts
     when: nginx.vhosts is defined and not((nginx.vhosts is none) or (nginx.vhosts|trim == ''))
 
-  - name: nginx | nginx_os_ubuntu.yml | enable vhosts in sites-enabled
+  - name: nginx | nginx_os_debian7.yml | enable vhosts in sites-enabled
     file: src=/etc/nginx/sites-available/{{ item.name }} path=/etc/nginx/sites-enabled/{{ item.name }} state=link
     with_items: nginx.vhosts
     when: nginx.vhosts is defined and not((nginx.vhosts is none) or (nginx.vhosts|trim == ''))
     notify:
       - reload nginx
 
-  - name: nginx | nginx_os_ubuntu.yml | ensure nginx service is running
+  - name: nginx | nginx_os_debian7.yml | ensure nginx service is running
     service: name=nginx state=started

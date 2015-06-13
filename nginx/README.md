@@ -14,6 +14,7 @@ This role installs [nginx](http://nginx.org).
 |`nginx.config.vars.max_clients`|nginx max client|8096|
 |`nginx.config.vars.access_log`|nginx access log|/var/log/nginx/access.log|
 |`nginx.config.vars.error_log`|nginx error log|/var/log/nginx/error.log|
+|`nginx.vhosts`|nginx vhosts|<empty>|
 |`env`|dictionary of environment variables (http_proxy, https_proxy, ftp_proxy)||
 
 See [defaults/main.yml](https://github.com/ryankanno/ansible-roles/blob/master/nginx/defaults/main.yml)
