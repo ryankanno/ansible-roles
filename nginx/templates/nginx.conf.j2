@@ -1,11 +1,11 @@
 # {{ ansible_managed }}
 
-user {{ nginx.config.vars.user }};
+user {{ nginx.conf.vars.user }};
 worker_processes {{ ansible_processor_count }};
-pid {{ nginx.config.vars.pid }};
+pid {{ nginx.conf.vars.pid }};
 
 events {
-    worker_connections {{ nginx.config.vars.max_clients }};
+    worker_connections {{ nginx.conf.vars.max_clients }};
     multi_accept       on;
     use                epoll;
 }
@@ -26,8 +26,8 @@ http {
     include /etc/nginx/mime.types;
     default_type application/octet-stream;
 
-    access_log {{ nginx.config.vars.access_log }};
-    error_log  {{ nginx.config.vars.error_log }};
+    access_log {{ nginx.conf.vars.access_log }};
+    error_log  {{ nginx.conf.vars.error_log }};
 
     gzip             on;
     gzip_comp_level  2;

@@ -31,7 +31,7 @@
       - reload nginx
 
   - name: nginx | nginx_os_debian7.yml | ensure nginx configuration
-    template: src={{ nginx.config.src }} dest=/etc/nginx/nginx.conf group=root owner=root
+    template: src={{ nginx.conf.src_path }} dest=/etc/nginx/nginx.conf group=root owner=root
     notify:
       - restart nginx
 
@@ -45,14 +45,14 @@
     file: path=/etc/nginx/ssl/dhparam.pem owner=root group=root mode=0600
 
   - name: nginx | nginx_os_debian7.yml | copy vhosts to sites-available
-    template: src={{ item.path }} dest=/etc/nginx/sites-available/{{ item.name }}
-    with_items: nginx.vhosts
-    when: nginx.vhosts is defined and not((nginx.vhosts is none) or (nginx.vhosts|trim == ''))
+    template: src={{ item.src_path }} dest=/etc/nginx/sites-available/{{ item.name }}
+    with_items: nginx.vhosts_conf
+    when: nginx.vhosts_conf is defined and not((nginx.vhosts_conf is none) or (nginx.vhosts_conf|trim == ''))
 
   - name: nginx | nginx_os_debian7.yml | enable vhosts in sites-enabled
     file: src=/etc/nginx/sites-available/{{ item.name }} path=/etc/nginx/sites-enabled/{{ item.name }} state=link
-    with_items: nginx.vhosts
-    when: nginx.vhosts is defined and not((nginx.vhosts is none) or (nginx.vhosts|trim == ''))
+    with_items: nginx.vhosts_conf
+    when: nginx.vhosts_conf is defined and not((nginx.vhosts_conf is none) or (nginx.vhosts_conf|trim == ''))
     notify:
       - reload nginx
 
