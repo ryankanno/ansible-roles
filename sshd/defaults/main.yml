@@ -1,12 +1,13 @@
 sshd:
   package: openssh-server
   version: 1:6.6p1-2ubuntu2
-  config:
-    src: 'sshd_config.j2'
-    port: 22
-    enable_pam_auth: 'no'
-    enable_password_auth: 'no'
-    enable_pub_key_auth: 'yes'
+  conf:
+    src_path: 'sshd_config.j2'
+    vars:
+      port: 22
+      enable_pam_auth: 'no'
+      enable_password_auth: 'no'
+      enable_pub_key_auth: 'yes'
 
 env:
   http_proxy:
