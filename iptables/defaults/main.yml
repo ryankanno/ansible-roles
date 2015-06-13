@@ -1,8 +1,9 @@
 iptables:
-  config:
-    src: 'iptables.j2'
-    open_ports:
-      - 22
+  conf:
+    src_path: 'iptables.j2'
+    vars:
+      open_ports:
+        - 22
 
 env:
   http_proxy:
