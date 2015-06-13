@@ -8,6 +8,20 @@ Follow the instructions over at [vagrant-ansible](https://github.com/ryankanno/v
 
 ## Updates
 
+2015-06-13
+==========
+
+Starting to update all the roles and make them more consistent. If you're using
+this in production, just be warned that they will start being migrated. This
+setup isn't ideal if you need to pin these to versions since you have a
+dependency on the roles. If you need that, you'll want to freeze them in some
+fashion (fork the repo and ignore my changes, etc). At some point, I'll get
+around to versioning some of these roles, but for the most part, I haven't
+needed to. If people complain I'll definitely consider it, but for the most
+part, using my own experiences, I think you setup your infra once and then forget about it. :D
+
+----------
+
   * Added env.proxies as an environment variable for all tested roles
   * Updated README in each role describing all the available variables
   * Tried to make each task idempotent (If you see anything that stinks, I take pull requests!)
