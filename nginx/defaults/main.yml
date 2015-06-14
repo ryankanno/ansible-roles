@@ -9,7 +9,7 @@ nginx:
       max_clients: 8096
       access_log: /var/log/nginx/access.log
       error_log: /var/log/nginx/error.log
-  vhosts_conf: # list that contains {src_path:, name}
+  vhosts_conf: # list that contains {src_path, target_name}
 
 env:
   http_proxy:

@@ -45,12 +45,12 @@
     file: path=/etc/nginx/ssl/dhparam.pem owner=root group=root mode=0600
 
   - name: nginx | nginx_os_ubuntu.yml | copy vhosts to sites-available
-    template: src={{ item.src_path }} dest=/etc/nginx/sites-available/{{ item.name }}
+    template: src={{ item.src_path }} dest=/etc/nginx/sites-available/{{ item.target_name }}
     with_items: nginx.vhosts_conf
     when: nginx.vhosts_conf is defined and not((nginx.vhosts_conf is none) or (nginx.vhosts_conf|trim == ''))
 
   - name: nginx | nginx_os_ubuntu.yml | enable vhosts in sites-enabled
-    file: src=/etc/nginx/sites-available/{{ item.name }} path=/etc/nginx/sites-enabled/{{ item.name }} state=link
+    file: src=/etc/nginx/sites-available/{{ item.target_name }} path=/etc/nginx/sites-enabled/{{ item.target_name }} state=link
     with_items: nginx.vhosts_conf
     when: nginx.vhosts_conf is defined and not((nginx.vhosts_conf is none) or (nginx.vhosts_conf|trim == ''))
     notify:
