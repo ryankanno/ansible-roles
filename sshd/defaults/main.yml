@@ -1,6 +1,6 @@
 sshd:
   package: openssh-server
-  version: 1:6.6p1-2ubuntu2
+  version: 1:6.6p1-2ubuntu2.3
   conf:
     src_path: 'sshd_config.j2'
     vars:
