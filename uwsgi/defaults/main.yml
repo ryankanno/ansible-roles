@@ -1,0 +1,9 @@
+uwsgi:
+  package: uwsgi
+  version: 2.0.11.1
+  apps_conf:
+
+env:
+  http_proxy:
+  https_proxy:
+  ftp_proxy:
