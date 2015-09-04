@@ -1,0 +1,3 @@
+---
+  - include: supervisor_os_ubuntu.yml tags=supervisor
+    when: ansible_distribution == 'Ubuntu'

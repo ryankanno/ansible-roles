@@ -1,0 +1,32 @@
+---
+  - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor dependencies installed
+    apt: name={{ item }} update_cache=yes cache_valid_time=3600
+    with_items:
+      - python-pip
+
+  - name: supervisor | supervisor_os_ubuntu.yml | install supervisor
+    pip: name={{ supervisor.package }} version={{ supervisor.version }}
+
+  - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor directory
+    file: state=directory path=/etc/supervisor owner=root group=root
+
+  - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor conf.d directory
+    file: state=directory path=/etc/supervisor/conf.d owner=root group=root
+
+  - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor configuration
+    template: src={{ supervisor.conf.path }} dest=/etc/supervisor/supervisord.conf group=root owner=root
+
+  - name: supervisor | supervisor_os_ubuntu.yml | enable supervisor apps
+    template: src={{ item.src_path }} dest=/etc/supervisor/conf.d/{{ item.target_name }} group=root owner=root
+    with_items: supervisor.apps_conf
+    when: supervisor.apps_conf is defined and not((supervisor.apps_conf is none) or (supervisor.apps_conf|trim == ''))
+
+  - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisord is running
+    shell: pgrep -u {{ ansible_user_id }} supervisor
+    ignore_errors: on
+    changed_when: off
+    register: supervisord_running
+
+  - name: supervisor | supervisor_os_ubuntu.yml | enable supervisord
+    shell: /usr/local/bin/supervisord -c /etc/supervisor/supervisord.conf
+    when: supervisord_running | failed

@@ -1,0 +1,11 @@
+supervisor:
+  package: supervisor
+  version: 3.0b2
+  conf:
+    path: 'supervisord.conf.j2'
+  apps_conf:
+
+env:
+  http_proxy:
+  https_proxy:
+  ftp_proxy:
