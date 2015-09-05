@@ -13,8 +13,12 @@
   - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor conf.d directory
     file: state=directory path=/etc/supervisor/conf.d owner=root group=root
 
+  - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor logs directory
+    file: state=directory path="{{ supervisor.logs_path }}" owner=root group=root
+    when: supervisor.logs_path is defined and not((supervisor.logs_path is none) or (supervisor.logs_path|trim == ''))
+
   - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisor configuration
-    template: src={{ supervisor.conf.path }} dest=/etc/supervisor/supervisord.conf group=root owner=root
+    template: src={{ supervisor.conf.src_path }} dest=/etc/supervisor/supervisord.conf group=root owner=root
 
   - name: supervisor | supervisor_os_ubuntu.yml | enable supervisor apps
     template: src={{ item.src_path }} dest=/etc/supervisor/conf.d/{{ item.target_name }} group=root owner=root
@@ -27,6 +31,6 @@
     changed_when: off
     register: supervisord_running
 
-  - name: supervisor | supervisor_os_ubuntu.yml | enable supervisord
+  - name: supervisor | supervisor_os_ubuntu.yml | enable supervisord if not running
     shell: /usr/local/bin/supervisord -c /etc/supervisor/supervisord.conf
     when: supervisord_running | failed

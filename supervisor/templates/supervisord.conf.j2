@@ -4,14 +4,15 @@
 file=/tmp/supervisor.sock   ; (the path to the socket file)
 
 [supervisord]
-logfile=/var/log/supervisord.log ; (main log file;default $CWD/supervisord.log)
-logfile_maxbytes=50MB        ; (max main logfile bytes b4 rotation;default 50MB)
-logfile_backups=30           ; (num of main logfile rotation backups;default 10)
-loglevel=info                ; (log level;default info; others: debug,warn,trace)
-pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
-nodaemon=false               ; (start in foreground if true;default false)
-minfds=1024                  ; (min. avail startup file descriptors;default 1024)
-minprocs=200                 ; (min. avail process descriptors;default 200)
+logfile=/var/log/supervisord.log  ; main log file;default $CWD/supervisord.log
+logfile_maxbytes=50MB             ; max main logfile bytes b4 rotation;default 50MB
+logfile_backups=30                ; num of main logfile rotation backups;default 10
+loglevel=info                     ; log level;default info; others: debug,warn,trace
+pidfile=/tmp/supervisord.pid      ; supervisord pidfile;default supervisord.pid
+nodaemon=false                    ; start in foreground if true;default false
+minfds=1024                       ; min. avail startup file descriptors;default 1024
+minprocs=200                      ; min. avail process descriptors;default 200
+childlogdir={{ supervisor.logs_path }} ; where child log files will live
 
 ; the below section must remain in the config file for RPC
 ; (supervisorctl/web interface) to work, additional interfaces may be

@@ -2,7 +2,8 @@ supervisor:
   package: supervisor
   version: 3.0b2
   conf:
-    path: 'supervisord.conf.j2'
+    src_path: 'supervisord.conf.j2'
+  logs_path: '/var/log/supervisord'
   apps_conf:
 
 env:
