@@ -1,6 +1,7 @@
 uwsgi:
   package: uwsgi
   version: 2.0.11.1
+  logs_path: '/var/log/uwsgi'
   apps_conf:
 
 env:

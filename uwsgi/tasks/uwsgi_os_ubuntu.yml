@@ -16,6 +16,10 @@
       - '/etc/uwsgi/apps-available'
       - '/etc/uwsgi/apps-enabled'
 
+  - name: uwsgi | main.yml | ensure uwsgi logs directories
+    file: state=directory path="{{ uwsgi.logs_path }}" owner=root group=root
+    when: uwsgi.logs_path is defined and not((uwsgi.logs_path is none) or (uwsgi.logs_path|trim == ''))
+
   - name: uwsgi | main.yml | ensure uwsgi configuration
     template: src={{ item.src_path }} dest=/etc/uwsgi/apps-available/{{ item.target_name }} group=root owner=root
     with_items: uwsgi.apps_conf
