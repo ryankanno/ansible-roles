@@ -22,7 +22,7 @@
 
   - name: supervisor | supervisor_os_ubuntu.yml | enable supervisor apps
     template: src={{ item.src_path }} dest=/etc/supervisor/conf.d/{{ item.target_name }} group=root owner=root
-    with_items: supervisor.apps_conf
+    with_items: "{{ supervisor.apps_conf }}"
     when: supervisor.apps_conf is defined and not((supervisor.apps_conf is none) or (supervisor.apps_conf|trim == ''))
 
   - name: supervisor | supervisor_os_ubuntu.yml | ensure supervisord is running

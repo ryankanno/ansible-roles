@@ -22,10 +22,10 @@
 
   - name: uwsgi | main.yml | ensure uwsgi configuration
     template: src={{ item.src_path }} dest=/etc/uwsgi/apps-available/{{ item.target_name }} group=root owner=root
-    with_items: uwsgi.apps_conf
+    with_items: "{{ uwsgi.apps_conf }}"
     when: uwsgi.apps_conf is defined and not((uwsgi.apps_conf is none) or (uwsgi.apps_conf|trim == ''))
 
   - name: uwsgi | main.yml | enable uwsgi in sites-enabled
     file: src=/etc/uwsgi/apps-available/{{ item.target_name }} path=/etc/uwsgi/apps-enabled/{{ item.target_name }} state=link group=root owner=root
-    with_items: uwsgi.apps_conf
+    with_items: "{{ uwsgi.apps_conf }}"
     when: uwsgi.apps_conf is defined and not((uwsgi.apps_conf is none) or (uwsgi.apps_conf|trim == ''))
