@@ -7,7 +7,7 @@
 
   - name: nginx | nginx_os_ubuntu.yml | install nginx
     apt: name={{ nginx.package }}={{ nginx.version }} state=present update_cache=yes cache_valid_time=3600
-    environment: env
+    environment: "{{ env }}"
 
   - name: nginx | nginx_os_ubuntu.yml | ensure sites-available exists
     file: path=/etc/nginx/sites-available state=directory group=root owner=root
